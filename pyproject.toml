@@ -1,0 +1,91 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pymotogp"
+version = "0.1.0"
+description = "Fast, pythonic access to MotoGP data — inspired by FastF1"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Tejas Redkar", email = "redkartejas213@gmail.com" },
+]
+keywords = [
+    "motogp",
+    "motorsport",
+    "racing",
+    "data-analysis",
+    "telemetry",
+    "qualifying",
+    "lap-times",
+    "fastf1",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Typing :: Typed",
+]
+dependencies = [
+    "requests>=2.31",
+    "pandas>=2.0",
+    "pdfplumber>=0.10",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+    "pytest-cov>=4.1",
+    "black>=23.0",
+    "mypy>=1.5",
+    "types-requests>=2.31",
+    "vcrpy>=5.1",
+]
+docs = [
+    "sphinx>=7.0",
+    "sphinx-rtd-theme>=1.3",
+    "myst-parser>=2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/tejred213/PyMotoGP"
+Repository = "https://github.com/tejred213/PyMotoGP"
+Issues = "https://github.com/tejred213/PyMotoGP/issues"
+Changelog = "https://github.com/tejred213/PyMotoGP/blob/main/CHANGELOG.md"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["motogp*"]
+
+[tool.setuptools.package-data]
+motogp = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+markers = [
+    "integration: end-to-end tests requiring network or local fixtures (deselect with '-m \"not integration\"')",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = false
+ignore_missing_imports = true
