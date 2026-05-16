@@ -4,11 +4,29 @@ Accessed via ``session.plot`` — a :class:`SessionPlotter` bound to one session
 Every method returns a :class:`matplotlib.figure.Figure` so callers can save
 it (``fig.savefig('out.png')``) or further customize it.
 
+Lap filtering modes
+-------------------
+
+DORNA timing data includes every lap a rider rode: out-laps from pit, push
+attempts, cool-downs, in-laps. Plotting all of them produces a jagged graph
+dominated by 200-second outlap spikes. The plotter picks a filter mode
+automatically by session type, but you can override via ``mode=``:
+
+    "auto"  — pick by session type (default)
+    "push"  — qualifying logic: keep laps within ``push_tolerance`` × rider best
+              (default 1.03, i.e. within 3% of their fastest)
+    "race"  — race logic: drop cancelled + pit; keep everything else so
+              degradation is visible. Drops lap 1 (chaotic start).
+    "all"   — no filtering. Use for debugging.
+
 Style choices:
-    - Cancelled and pit laps are excluded by default (toggle with ``include_outliers=True``)
     - Y-axis lap times render as MM:SS.mmm
+    - Y-axis auto-clamps to a tight pace window so cool-down laps don't
+      crush the visible range
     - Each rider gets a stable colour from a Tableau palette
-    - Best lap is highlighted with a star marker
+    - Best lap is highlighted with a star + an annotation
+    - ``max_riders`` (default 6) keeps lap-time plots readable; pass ``None``
+      to show the full field
 """
 from __future__ import annotations
 
@@ -69,32 +87,73 @@ class SessionPlotter:
 
     # ── helpers ─────────────────────────────────────────────────────────────
 
+    def _resolve_mode(self, mode: str) -> str:
+        """Map 'auto' to a concrete mode by session type."""
+        if mode != "auto":
+            return mode
+        st = (self.session.metadata.session_type or "").upper()
+        if st.startswith("Q") or st.startswith("FP") or st.startswith("PR"):
+            return "push"
+        if st.startswith("RAC") or st.startswith("SPR") or st.startswith("WUP"):
+            return "race"
+        return "push"   # safe default — focuses on representative laps
+
     def _df(
         self,
-        include_outliers: bool = False,
-        outlap_threshold: float = 1.15,
+        mode: str = "auto",
+        push_tolerance: float = 1.03,
     ) -> pd.DataFrame:
-        """Filter to valid timed laps.
+        """Filter to representative laps for the chosen mode.
 
-        Drops cancelled and pit-marked laps. Also drops "outlap-like" laps —
-        laps whose time exceeds ``outlap_threshold`` × that rider's median lap
-        time — which catches the in/out laps that DORNA didn't flag with 'P'.
-        Set ``include_outliers=True`` to disable both filters.
+        ``mode`` is one of:
+
+            "auto" — picks by session type (qualifying/practice → ``"push"``,
+                     race/sprint/warm-up → ``"race"``).
+            "push" — keep only laps within ``push_tolerance`` × the rider's
+                     own session-best. Cuts out-laps, in-laps, and cool-down
+                     laps without depending on a median that's itself
+                     contaminated by outlaps.
+            "race" — drop cancelled, pit, and lap 1 (chaotic start). Keep
+                     everything else so tyre degradation is visible.
+            "all"  — no filtering. Useful for debugging.
         """
         df = self.session.laps.to_dataframe()
         if df.empty:
             return df
-        if include_outliers:
+
+        resolved = self._resolve_mode(mode)
+        if resolved == "all":
             return df
-        df = df[(df["is_valid"]) & (~df["is_cancelled"]) & (~df["is_pit"])]
+
+        # Both push and race drop the obvious garbage.
+        df = df[df["is_valid"] & ~df["is_cancelled"]]
+
+        if resolved == "race":
+            # Race: keep everything except is_pit and the first lap.
+            return df[~df["is_pit"] & (df["lap_number"] > 1)]
+
+        # "push" mode — keep laps within push_tolerance × rider's own best
+        # AND no slower than ``field_cap`` × the field-best lap. The second
+        # rule drops riders who only set a Classification-only fallback (no
+        # real flying lap) — otherwise a single 3-minute outlier would
+        # dominate the Y-axis.
+        df = df[~df["is_pit"]]
         if df.empty:
             return df
-        medians = df.groupby("rider_name")["lap_time_ms"].transform("median")
-        return df[df["lap_time_ms"] <= medians * outlap_threshold]
+        rider_bests = df.groupby("rider_name")["lap_time_ms"].transform("min")
+        field_best = df["lap_time_ms"].min()
+        field_cap = 1.10
+        keep = (
+            (df["lap_time_ms"] <= rider_bests * push_tolerance)
+            & (df["lap_time_ms"] <= field_best * field_cap)
+        )
+        return df[keep]
 
     def _resolve_riders(
         self, df: pd.DataFrame, riders: Optional[Sequence[str]]
     ) -> list[str]:
+        if df.empty or "rider_name" not in df.columns:
+            return []
         if not riders:
             return list(df["rider_name"].unique())
         wanted: list[str] = []
@@ -126,42 +185,105 @@ class SessionPlotter:
     def lap_times(
         self,
         riders: Optional[Sequence[str]] = None,
-        include_outliers: bool = False,
+        mode: str = "auto",
+        push_tolerance: float = 1.03,
+        max_riders: Optional[int] = 6,
+        show_reference: bool = True,
+        annotate_best: bool = True,
+        y_padding_s: float = 1.5,
         figsize: tuple[float, float] = (12, 6),
         ax: Optional[Axes] = None,
     ) -> Figure:
         """Lap time progression per rider.
 
-        X = lap number, Y = lap time. One line per rider. Best lap is starred.
+        X = lap number, Y = lap time. One line per rider. Best lap is starred
+        and annotated with its time.
+
+        Args:
+            riders: Names or substrings to filter to. ``None`` = all riders.
+            mode: Lap filter mode — ``"auto"``, ``"push"``, ``"race"``, ``"all"``.
+                See module docstring for details.
+            push_tolerance: In ``"push"`` mode, keep laps within this factor of
+                each rider's own session-best. Default ``1.03`` (within 3%).
+            max_riders: Cap the number of riders plotted (fastest first).
+                Default ``6``. Pass ``None`` to show the full field.
+            show_reference: Dashed red line at session-best lap time.
+            annotate_best: Text label with each rider's best-lap time near the star.
+            y_padding_s: Padding (seconds) above the slowest displayed lap;
+                clamps the Y-axis to a tight pace window.
         """
-        df = self._df(include_outliers)
+        df = self._df(mode=mode, push_tolerance=push_tolerance)
         names = self._resolve_riders(df, riders)
-        if df.empty or not names:
-            logger.warning("lap_times: no plottable laps")
+
+        # Cap to top N by best lap when no explicit riders requested.
+        if riders is None and max_riders is not None and len(names) > max_riders:
+            ranked = (
+                df[df["rider_name"].isin(names)]
+                .groupby("rider_name")["lap_time_ms"].min()
+                .sort_values()
+            )
+            names = list(ranked.head(max_riders).index)
 
         fig, ax = self._setup(ax, figsize)
+        if df.empty or not names:
+            logger.warning("lap_times: no plottable laps for mode=%r", mode)
+            ax.text(0.5, 0.5, "No representative laps to plot.\n"
+                              "Try mode='all' or relax push_tolerance.",
+                    ha="center", va="center", transform=ax.transAxes,
+                    fontsize=11, color="#666")
+            ax.set_title(self._title("Lap times"))
+            return fig
+
+        plotted = df[df["rider_name"].isin(names)]
         for name in names:
-            r = df[df["rider_name"] == name].sort_values("lap_number")
+            r = plotted[plotted["rider_name"] == name].sort_values("lap_number")
+            if r.empty:
+                continue
             color = self._color(name)
+            label = _short_name(name, names)
             ax.plot(
                 r["lap_number"], r["lap_time_ms"],
                 marker="o", markersize=4, linewidth=1.4,
-                color=color, label=name,
+                color=color, label=label,
             )
-            best = r[r["is_best"]]
-            if not best.empty:
-                ax.scatter(
-                    best["lap_number"], best["lap_time_ms"],
-                    marker="*", s=180, color=color,
-                    edgecolor="black", linewidths=0.6, zorder=5,
+            # Mark this rider's own best within the visible data.
+            rider_best_ms = r["lap_time_ms"].min()
+            best_row = r[r["lap_time_ms"] == rider_best_ms].iloc[0]
+            ax.scatter(
+                best_row["lap_number"], best_row["lap_time_ms"],
+                marker="*", s=180, color=color,
+                edgecolor="black", linewidths=0.6, zorder=5,
+            )
+            if annotate_best:
+                ax.annotate(
+                    _fmt_ms_as_time(rider_best_ms),
+                    xy=(best_row["lap_number"], best_row["lap_time_ms"]),
+                    xytext=(6, -10), textcoords="offset points",
+                    fontsize=8, color=color, fontweight="bold",
                 )
+
+        # Session-best reference line.
+        if show_reference and not plotted.empty:
+            session_best = plotted["lap_time_ms"].min()
+            ax.axhline(
+                session_best, color="#d62728", linestyle="--",
+                linewidth=0.8, alpha=0.55,
+                label=f"Session best  {_fmt_ms_as_time(session_best)}",
+            )
+
+        # Tight Y-axis: clamp from just below the best to a small pad above
+        # the worst visible lap. Stops one slow lap from crushing the scale.
+        if not plotted.empty:
+            y_min = plotted["lap_time_ms"].min() - 200
+            y_max = plotted["lap_time_ms"].max() + y_padding_s * 1000
+            ax.set_ylim(y_min, y_max)
 
         ax.set_xlabel("Lap")
         ax.set_ylabel("Lap time")
-        ax.set_title(self._title("Lap times"))
+        mode_label = self._resolve_mode(mode)
+        ax.set_title(self._title(f"Lap times  •  mode={mode_label}"))
         ax.grid(True, alpha=0.3)
-        if names:
-            ax.legend(loc="best", fontsize=9, framealpha=0.9)
+        ax.legend(loc="best", fontsize=9, framealpha=0.9)
         self._apply_time_axis(ax)
         fig.tight_layout()
         return fig
@@ -266,13 +388,23 @@ class SessionPlotter:
     def speed_trace(
         self,
         riders: Optional[Sequence[str]] = None,
+        mode: str = "auto",
+        max_riders: Optional[int] = 6,
         figsize: tuple[float, float] = (12, 6),
         ax: Optional[Axes] = None,
     ) -> Figure:
         """Top speed per lap per rider — proxy for power-delivery / slipstream."""
-        df = self._df()
+        df = self._df(mode=mode)
         df = df[df["top_speed"] > 0]
         names = self._resolve_riders(df, riders)
+
+        if riders is None and max_riders is not None and len(names) > max_riders:
+            ranked = (
+                df[df["rider_name"].isin(names)]
+                .groupby("rider_name")["top_speed"].max()
+                .sort_values(ascending=False)
+            )
+            names = list(ranked.head(max_riders).index)
 
         fig, ax = self._setup(ax, figsize)
         for name in names:
@@ -282,7 +414,7 @@ class SessionPlotter:
             ax.plot(
                 r["lap_number"], r["top_speed"],
                 marker="o", markersize=4, linewidth=1.4,
-                color=self._color(name), label=name,
+                color=self._color(name), label=_short_name(name, names),
             )
 
         ax.set_xlabel("Lap")
