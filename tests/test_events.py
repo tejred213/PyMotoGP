@@ -119,6 +119,20 @@ def test_update_exports_session_json(client, tmp_path):
     assert len(payload["classification"]) == 2
 
 
+def test_report_html_renders_grouped_email_body(client):
+    import pandas as pd
+
+    from motogp.__main__ import _report_html
+
+    report = update(2026, sessions=["Q2", "RAC"], client=client)
+    html = _report_html(report)
+    assert "GRAND PRIX OF THE NETHERLANDS" in html
+    assert "classification-only" in html
+    assert 'background:#ffffff' in html          # explicit bg for dark-mode clients
+    assert "<style" not in html                  # inline styles only (Gmail)
+    assert _report_html(pd.DataFrame()) .startswith("<p")
+
+
 def test_fp1_fp2_aliases_resolve_distinct_sessions(client):
     fp1 = client.find_session("ev-ned", "cat-motogp", "FP1")
     fp2 = client.find_session("ev-ned", "cat-motogp", "fp2")

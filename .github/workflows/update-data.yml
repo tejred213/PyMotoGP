@@ -44,7 +44,7 @@ jobs:
         id: sync
         run: |
           set -o pipefail
-          python -m motogp --export data | tee sync-report.txt
+          python -m motogp --export data --html sync-report.html | tee sync-report.txt
           echo "summary=$(tail -1 sync-report.txt)" >> "$GITHUB_OUTPUT"
 
       - name: Commit updated data
@@ -69,3 +69,4 @@ jobs:
           to: ${{ secrets.MAIL_TO }}
           subject: "PyMotoGP data sync — ${{ steps.sync.outputs.summary }}"
           body: file://sync-report.txt
+          html_body: file://sync-report.html
