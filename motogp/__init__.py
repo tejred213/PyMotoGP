@@ -21,6 +21,7 @@ from .core.lap import Lap, LapCollection
 from .core.sector import Sector
 from .core.rider import Rider, Team
 from .api.pulselive import PulseLiveClient, PulseLiveError
+from .events import get_event_schedule, update
 from .analysis import (
     SessionAnalyzer,
     HistoricalAnalyzer,
@@ -45,4 +46,6 @@ __all__ = [
     'HistoricalAnalyzer',
     'RacePaceEstimator',
     'load',
+    'get_event_schedule',
+    'update',
 ]

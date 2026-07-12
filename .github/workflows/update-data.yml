@@ -1,0 +1,48 @@
+# Weekly MotoGP data sync — GitHub's cron replaces the local launchd agent.
+#
+# Runs every Monday 08:00 UTC (races end Sunday; DORNA publishes Analysis
+# PDFs within hours), syncs the current season, and commits the per-session
+# JSON exports to data/. Trigger manually from the Actions tab via
+# "Run workflow". Note: GitHub only fires `schedule` from the default branch,
+# and pauses it after ~60 days without repo activity.
+
+name: Update MotoGP data
+
+on:
+  schedule:
+    - cron: "0 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Rolling cache of downloaded Analysis PDFs so weekly runs only fetch
+      # what's new instead of re-downloading the whole season.
+      - uses: actions/cache@v4
+        with:
+          path: ~/.motogp_pdfs
+          key: motogp-pdfs-${{ github.run_id }}
+          restore-keys: motogp-pdfs-
+
+      - run: pip install .
+
+      - run: python -m motogp --export data
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet && echo "no new data" && exit 0
+          git commit -m "data: weekly MotoGP sync"
+          git push

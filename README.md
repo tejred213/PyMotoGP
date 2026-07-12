@@ -44,8 +44,48 @@ import motogp
 session = motogp.load(2024, 'cataluña', 'Q2')
 ```
 
-Supported session labels: `Q1`, `Q2`, `qualifying`, `FP`, `practice`,
+Supported session labels: `Q1`, `Q2`, `qualifying`, `FP1`, `FP2`, `practice`,
 `sprint`, `warm-up`, `race`.
+
+### Stay current with the season
+
+```python
+motogp.get_event_schedule(2026)     # calendar DataFrame with a `finished` flag
+motogp.get_event_schedule()         # None → current season
+
+# Sync every finished GP of the season into the local cache — laps,
+# classification, and Analysis PDFs. Safe to re-run after each race weekend;
+# already-cached sessions are skipped.
+report = motogp.update(2026)
+
+# Or narrow it down:
+motogp.update(2026, events=['assen', 'GER'], sessions=['Q2', 'SPR', 'RAC'])
+```
+
+`update()` returns a per-session report (riders, laps, status). Sessions from
+a race weekend that just ended may show `classification-only` or `empty` until
+DORNA publishes the Analysis PDF — rerun later to fill them in.
+
+### Automated updates (no manual syncing)
+
+`python -m motogp [year]` runs the same sync from the command line, so any
+scheduler can keep your data current. On macOS use the bundled launchd agent
+(preferred over cron — it runs missed jobs when the Mac wakes):
+
+```bash
+cp scripts/com.pymotogp.update.plist ~/Library/LaunchAgents/
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.pymotogp.update.plist
+```
+
+It syncs every Monday at 09:00 and logs to `~/.motogp/update.log`. Edit the
+plist to change the python path, repo location, or schedule. On Linux, the
+cron equivalent is: `0 9 * * 1 cd /path/to/PyMotoGP && python3 -m motogp`.
+
+Prefer to keep your machine out of it entirely? The repo ships a scheduled
+GitHub Actions workflow (`.github/workflows/update-data.yml`) that runs the
+same sync on GitHub's runners every Monday 08:00 UTC and commits per-session
+JSON exports to `data/<year>/` (`python -m motogp --export data`). It can
+also be triggered manually from the Actions tab.
 
 ### Inspect laps
 

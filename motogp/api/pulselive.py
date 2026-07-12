@@ -35,7 +35,8 @@ CATEGORY_ALIASES = {
 
 # Session type codes used by PulseLive.
 SESSION_TYPE_ALIASES: dict[str, Any] = {
-    "fp": "FP", "fp1": "FP", "fp2": "FP",
+    "fp": "FP", "fp1": ("FP", 1), "fp2": ("FP", 2),
+    "fp3": ("FP", 3), "fp4": ("FP", 4),
     "pr": "PR", "practice": "PR",
     "q": "Q", "q1": ("Q", 1), "q2": ("Q", 2),
     "qualifying": ("Q", 2),
@@ -124,9 +125,15 @@ class PulseLiveClient:
         """All seasons, newest first."""
         return self._get("results/seasons")
 
-    def get_season(self, year: int) -> dict:
-        """Find the season record for a given calendar year."""
-        for s in self.get_seasons():
+    def get_season(self, year: Optional[int] = None) -> dict:
+        """Find the season record for a year; ``None`` → the current season."""
+        seasons = self.get_seasons()
+        if year is None:
+            for s in seasons:
+                if s.get("current"):
+                    return s
+            return seasons[0]  # newest first
+        for s in seasons:
             if s.get("year") == year:
                 return s
         raise PulseLiveError(f"season {year} not found")
