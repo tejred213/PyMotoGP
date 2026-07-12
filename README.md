@@ -111,7 +111,8 @@ session.plot.compare('Bagnaia', 'Martin')  # 2-panel comparison
 ```
 
 All plotting methods return a `matplotlib.figure.Figure`. Cancelled laps,
-pit laps, and likely outlaps (>1.15× rider median) are filtered by default.
+pit laps, and outlaps (>1.03× that rider's own best) are filtered by default,
+with a secondary cap at 1.10× the field best to handle riders with no flying lap.
 
 ### Analyze
 

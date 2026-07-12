@@ -11,7 +11,7 @@ Example usage:
     >>> session.plot.lap_times()
 """
 
-__version__ = '0.1.0'
+__version__ = '0.2.0'
 __author__ = 'Tejas Redkar'
 __email__ = 'redkartejas213@gmail.com'
 __license__ = 'MIT'
