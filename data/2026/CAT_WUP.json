@@ -1,0 +1,3333 @@
+{
+ "metadata": {
+  "year": 2026,
+  "event": "GRAND PRIX OF CATALONIA",
+  "session_type": "WUP",
+  "location": "Barcelona",
+  "date": "2026-05-17T09:40:00+00:00",
+  "source": "pulselive"
+ },
+ "classification": [
+  {
+   "id": "c9057f28-6500-481b-a809-a5d8654eb121",
+   "position": 1,
+   "rider": {
+    "id": "9a441928-d1af-452d-afce-fa028c044932",
+    "full_name": "Joan Mir",
+    "country": {
+     "iso": "ES",
+     "name": "Spain",
+     "region_iso": ""
+    },
+    "legacy_id": 8141,
+    "riders_id": "f55f9c34-8621-437b-ae04-ae2418720204",
+    "number": 36,
+    "riders_api_uuid": "f55f9c34-8621-437b-ae04-ae2418720204"
+   },
+   "team": {
+    "id": "0cf175c4-3850-44c2-8163-43b92a9031d6",
+    "name": "Honda HRC Castrol",
+    "legacy_id": 12,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "3a036648-7b14-4257-8c62-245e47e4d42b",
+    "name": "Honda",
+    "legacy_id": 1
+   },
+   "best_lap": {
+    "number": 4,
+    "time": "01:39.624"
+   },
+   "total_laps": 6,
+   "top_speed": 355.2,
+   "gap": {
+    "first": "0.000",
+    "prev": "0.000"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "029d2090-2735-4362-979f-c3f7441137e9",
+   "position": 2,
+   "rider": {
+    "id": "fcdd5500-a769-4ff4-8b9e-080d1849ff42",
+    "full_name": "Fabio Quartararo",
+    "country": {
+     "iso": "FR",
+     "name": "France",
+     "region_iso": ""
+    },
+    "legacy_id": 8520,
+    "riders_id": "bf95d959-6a60-44f1-84b5-ded861e62578",
+    "number": 20,
+    "riders_api_uuid": "bf95d959-6a60-44f1-84b5-ded861e62578"
+   },
+   "team": {
+    "id": "7892448f-80af-4dd3-b020-65e5c8b0a8c6",
+    "name": "Monster Energy Yamaha MotoGP Team",
+    "legacy_id": 5,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "babb4c4c-3608-4811-93ad-3b88cc407547",
+    "name": "Yamaha",
+    "legacy_id": 3
+   },
+   "best_lap": {
+    "number": 6,
+    "time": "01:39.728"
+   },
+   "total_laps": 6,
+   "top_speed": 354,
+   "gap": {
+    "first": "0.104",
+    "prev": "0.104"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "a6b6d56c-4104-4fbc-a8c7-3f2b3d562704",
+   "position": 3,
+   "rider": {
+    "id": "ab06dbae-7d6e-47c3-b63f-b7ac6b7d3bcd",
+    "full_name": "Marco Bezzecchi",
+    "country": {
+     "iso": "IT",
+     "name": "Italy",
+     "region_iso": ""
+    },
+    "legacy_id": 8688,
+    "riders_id": "e622ec5b-5ccf-457c-a67f-ec028f0ddf6e",
+    "number": 72,
+    "riders_api_uuid": "e622ec5b-5ccf-457c-a67f-ec028f0ddf6e"
+   },
+   "team": {
+    "id": "6967d790-8342-4649-a687-7cf5b0d038dd",
+    "name": "Aprilia Racing",
+    "legacy_id": 20,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "10d5e2bc-4b0b-4875-b936-3962fbb1b877",
+    "name": "Aprilia",
+    "legacy_id": 7
+   },
+   "best_lap": {
+    "number": 6,
+    "time": "01:39.775"
+   },
+   "total_laps": 6,
+   "top_speed": 354,
+   "gap": {
+    "first": "0.151",
+    "prev": "0.047"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "647aae17-572c-4840-b01a-db0b822b5a05",
+   "position": 4,
+   "rider": {
+    "id": "a6108385-dd4c-490d-b02e-542ed0275f79",
+    "full_name": "Pedro Acosta",
+    "country": {
+     "iso": "ES",
+     "name": "Spain",
+     "region_iso": ""
+    },
+    "legacy_id": 8658,
+    "riders_id": "ea39a0af-95d3-4a37-81a7-f332efdb9216",
+    "number": 37,
+    "riders_api_uuid": "ea39a0af-95d3-4a37-81a7-f332efdb9216"
+   },
+   "team": {
+    "id": "7f1c6f0a-82e4-40dc-85d7-c7380bf04dce",
+    "name": "Red Bull KTM Factory Racing",
+    "legacy_id": 13,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "be77c017-cc37-41eb-aa09-2977f1789b0f",
+    "name": "KTM",
+    "legacy_id": 298
+   },
+   "best_lap": {
+    "number": 5,
+    "time": "01:39.850"
+   },
+   "total_laps": 6,
+   "top_speed": 358.8,
+   "gap": {
+    "first": "0.226",
+    "prev": "0.075"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "f3126b35-7ac3-4756-9e2c-3aacb0af9acd",
+   "position": 5,
+   "rider": {
+    "id": "ff225c9d-64a2-43ac-a70e-62cf385a85a1",
+    "full_name": "Enea Bastianini",
+    "country": {
+     "iso": "IT",
+     "name": "Italy",
+     "region_iso": ""
+    },
+    "legacy_id": 8295,
+    "riders_id": "00db2312-15f2-4333-be5c-4bbff9d17aec",
+    "number": 23,
+    "riders_api_uuid": "00db2312-15f2-4333-be5c-4bbff9d17aec"
+   },
+   "team": {
+    "id": "c2bb908c-023b-4d6c-8f15-8d990a3d722c",
+    "name": "Red Bull KTM Tech3",
+    "legacy_id": 7,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "be77c017-cc37-41eb-aa09-2977f1789b0f",
+    "name": "KTM",
+    "legacy_id": 298
+   },
+   "best_lap": {
+    "number": 4,
+    "time": "01:39.976"
+   },
+   "total_laps": 6,
+   "top_speed": 357.6,
+   "gap": {
+    "first": "0.352",
+    "prev": "0.126"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "3c6734e8-269f-42dd-9d2d-3ba0ae63f3f6",
+   "position": 6,
+   "rider": {
+    "id": "6e940243-5167-4cc3-a343-a74337369b94",
+    "full_name": "Jack Miller",
+    "country": {
+     "iso": "AU",
+     "name": "Australia",
+     "region_iso": ""
+    },
+    "legacy_id": 8049,
+    "riders_id": "b0c1fea6-2dd5-4e26-8a18-0ac9fe6870e4",
+    "number": 43,
+    "riders_api_uuid": "b0c1fea6-2dd5-4e26-8a18-0ac9fe6870e4"
+   },
+   "team": {
+    "id": "9a107ef4-95b4-4058-8e00-060efa6bb48e",
+    "name": "Prima Pramac Yamaha MotoGP",
+    "legacy_id": 16,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "babb4c4c-3608-4811-93ad-3b88cc407547",
+    "name": "Yamaha",
+    "legacy_id": 3
+   },
+   "best_lap": {
+    "number": 6,
+    "time": "01:40.046"
+   },
+   "total_laps": 6,
+   "top_speed": 354,
+   "gap": {
+    "first": "0.422",
+    "prev": "0.070"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "7e2c7941-cd63-4520-a27d-94d77393d1c4",
+   "position": 7,
+   "rider": {
+    "id": "6c33de41-f014-4f17-8dc9-e6f36e61026a",
+    "full_name": "Fabio Di Giannantonio",
+    "country": {
+     "iso": "IT",
+     "name": "Italy",
+     "region_iso": ""
+    },
+    "legacy_id": 8539,
+    "riders_id": "525b1551-f10b-4cfd-9b43-59af6fca654b",
+    "number": 49,
+    "riders_api_uuid": "525b1551-f10b-4cfd-9b43-59af6fca654b"
+   },
+   "team": {
+    "id": "ee92fb0f-6420-4838-9b80-6d8b14815cd0",
+    "name": "Pertamina Enduro VR46 Racing Team",
+    "legacy_id": 17,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "b9d93efb-3cd0-4681-9de4-c412a866d568",
+    "name": "Ducati",
+    "legacy_id": 110
+   },
+   "best_lap": {
+    "number": 6,
+    "time": "01:40.072"
+   },
+   "total_laps": 6,
+   "top_speed": 357.6,
+   "gap": {
+    "first": "0.448",
+    "prev": "0.026"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "b5b9661b-270f-4cc3-a89f-6ee220dcaa81",
+   "position": 8,
+   "rider": {
+    "id": "58448742-f520-466a-a1a1-bf3286cce9c3",
+    "full_name": "Raul Fernandez",
+    "country": {
+     "iso": "ES",
+     "name": "Spain",
+     "region_iso": ""
+    },
+    "legacy_id": 8269,
+    "riders_id": "eec1f7dc-b115-44f6-82aa-73130e5c92cf",
+    "number": 25,
+    "riders_api_uuid": "eec1f7dc-b115-44f6-82aa-73130e5c92cf"
+   },
+   "team": {
+    "id": "3e91443a-c102-4b9e-ac41-f9f008832abc",
+    "name": "Trackhouse MotoGP Team",
+    "legacy_id": 8,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "10d5e2bc-4b0b-4875-b936-3962fbb1b877",
+    "name": "Aprilia",
+    "legacy_id": 7
+   },
+   "best_lap": {
+    "number": 6,
+    "time": "01:40.077"
+   },
+   "total_laps": 6,
+   "top_speed": 354,
+   "gap": {
+    "first": "0.453",
+    "prev": "0.005"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "c72acf31-db02-422d-8e32-27cf2d65208b",
+   "position": 9,
+   "rider": {
+    "id": "487440af-cfa9-478a-903b-4e893ee18d3a",
+    "full_name": "Johann Zarco",
+    "country": {
+     "iso": "FR",
+     "name": "France",
+     "region_iso": ""
+    },
+    "legacy_id": 7236,
+    "riders_id": "4a439bde-305a-4995-b3e7-783fa99f784a",
+    "number": 5,
+    "riders_api_uuid": "4a439bde-305a-4995-b3e7-783fa99f784a"
+   },
+   "team": {
+    "id": "c5ac8541-509f-4cf4-bd2c-ecd99c94a3cd",
+    "name": "Castrol Honda LCR",
+    "legacy_id": 2,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "3a036648-7b14-4257-8c62-245e47e4d42b",
+    "name": "Honda",
+    "legacy_id": 1
+   },
+   "best_lap": {
+    "number": 5,
+    "time": "01:40.096"
+   },
+   "total_laps": 6,
+   "top_speed": 352.9,
+   "gap": {
+    "first": "0.472",
+    "prev": "0.019"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "dd24ebd8-e3d2-48f7-b91a-2f5c40e293b4",
+   "position": 10,
+   "rider": {
+    "id": "7b0687b0-90bd-4ad6-b157-8c66fb8a93cf",
+    "full_name": "Luca Marini",
+    "country": {
+     "iso": "IT",
+     "name": "Italy",
+     "region_iso": ""
+    },
+    "legacy_id": 8431,
+    "riders_id": "5dfc20db-c3c4-4ecd-9c7c-f6cfd042031a",
+    "number": 10,
+    "riders_api_uuid": "5dfc20db-c3c4-4ecd-9c7c-f6cfd042031a"
+   },
+   "team": {
+    "id": "faa6e363-c407-4638-9c7a-168c8e3fbe8f",
+    "name": "Honda HRC Castrol",
+    "legacy_id": 3,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "3a036648-7b14-4257-8c62-245e47e4d42b",
+    "name": "Honda",
+    "legacy_id": 1
+   },
+   "best_lap": {
+    "number": 4,
+    "time": "01:40.104"
+   },
+   "total_laps": 6,
+   "top_speed": 355.2,
+   "gap": {
+    "first": "0.480",
+    "prev": "0.008"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "8e09819e-9dcc-4cdf-a3a2-52c07b4c1cfa",
+   "position": 11,
+   "rider": {
+    "id": "9cb55304-0ac1-401c-beb6-1a4f445018a4",
+    "full_name": "Francesco Bagnaia",
+    "country": {
+     "iso": "IT",
+     "name": "Italy",
+     "region_iso": ""
+    },
+    "legacy_id": 8273,
+    "riders_id": "66b78301-5826-4986-b11e-fa68a7bd77a7",
+    "number": 63,
+    "riders_api_uuid": "66b78301-5826-4986-b11e-fa68a7bd77a7"
+   },
+   "team": {
+    "id": "411c7fe3-c805-4165-8b9d-9280cb65130c",
+    "name": "Ducati Lenovo Team",
+    "legacy_id": 19,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "b9d93efb-3cd0-4681-9de4-c412a866d568",
+    "name": "Ducati",
+    "legacy_id": 110
+   },
+   "best_lap": {
+    "number": 4,
+    "time": "01:40.123"
+   },
+   "total_laps": 6,
+   "top_speed": 357.6,
+   "gap": {
+    "first": "0.499",
+    "prev": "0.019"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "a2c59db6-1987-4f63-ad08-944631b3a71c",
+   "position": 12,
+   "rider": {
+    "id": "5cbd7eb6-ccfc-4b9f-aad1-ede25d394f7b",
+    "full_name": "Jorge Martin",
+    "country": {
+     "iso": "ES",
+     "name": "Spain",
+     "region_iso": ""
+    },
+    "legacy_id": 8146,
+    "riders_id": "5b9af34e-da94-4ca2-9c4c-6be0fc8b1bbc",
+    "number": 89,
+    "riders_api_uuid": "5b9af34e-da94-4ca2-9c4c-6be0fc8b1bbc"
+   },
+   "team": {
+    "id": "b378e3e0-a700-478a-a6d5-3588c3f01244",
+    "name": "Aprilia Racing",
+    "legacy_id": 1,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "10d5e2bc-4b0b-4875-b936-3962fbb1b877",
+    "name": "Aprilia",
+    "legacy_id": 7
+   },
+   "best_lap": {
+    "number": 6,
+    "time": "01:40.292"
+   },
+   "total_laps": 6,
+   "top_speed": 354,
+   "gap": {
+    "first": "0.668",
+    "prev": "0.169"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "0b09f43d-ef37-4cf0-8d23-b07dd4bef3dd",
+   "position": 13,
+   "rider": {
+    "id": "2614e0f6-7e02-4076-a746-50f43fe3143c",
+    "full_name": "Fermin Aldeguer",
+    "country": {
+     "iso": "ES",
+     "name": "Spain",
+     "region_iso": ""
+    },
+    "legacy_id": 9867,
+    "riders_id": "71052114-5bce-4307-908c-4cc2bd387aac",
+    "number": 54,
+    "riders_api_uuid": "71052114-5bce-4307-908c-4cc2bd387aac"
+   },
+   "team": {
+    "id": "0247bf73-6f9f-409c-bdb5-6a047f0bdbd0",
+    "name": "BK8 Gresini Racing MotoGP",
+    "legacy_id": 18,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "b9d93efb-3cd0-4681-9de4-c412a866d568",
+    "name": "Ducati",
+    "legacy_id": 110
+   },
+   "best_lap": {
+    "number": 4,
+    "time": "01:40.330"
+   },
+   "total_laps": 6,
+   "top_speed": 355.2,
+   "gap": {
+    "first": "0.706",
+    "prev": "0.038"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "7587d4df-0450-4778-9e4c-9b9b77fc2768",
+   "position": 14,
+   "rider": {
+    "id": "66ee98b2-239c-487f-8913-aab8493ce280",
+    "full_name": "Maverick Vi\u00f1ales",
+    "country": {
+     "iso": "ES",
+     "name": "Spain",
+     "region_iso": ""
+    },
+    "legacy_id": 7409,
+    "riders_id": "71df6f0d-51c3-4cdb-9f5c-51939e6f33f2",
+    "number": 12,
+    "riders_api_uuid": "71df6f0d-51c3-4cdb-9f5c-51939e6f33f2"
+   },
+   "team": {
+    "id": "c0a8afd2-563f-41bb-8f34-f6e1e7f7a111",
+    "name": "Red Bull KTM Tech3",
+    "legacy_id": 4,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "be77c017-cc37-41eb-aa09-2977f1789b0f",
+    "name": "KTM",
+    "legacy_id": 298
+   },
+   "best_lap": {
+    "number": 4,
+    "time": "01:40.384"
+   },
+   "total_laps": 6,
+   "top_speed": 356.4,
+   "gap": {
+    "first": "0.760",
+    "prev": "0.054"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "c6721e75-d854-4270-aac2-c0afdc0caa2c",
+   "position": 15,
+   "rider": {
+    "id": "e7e4c72e-952e-4f64-8e8a-a47ff590fade",
+    "full_name": "Alex Marquez",
+    "country": {
+     "iso": "ES",
+     "name": "Spain",
+     "region_iso": ""
+    },
+    "legacy_id": 8173,
+    "riders_id": "41195f0f-9817-4a4d-913e-c1fbbb351d9b",
+    "number": 73,
+    "riders_api_uuid": "41195f0f-9817-4a4d-913e-c1fbbb351d9b"
+   },
+   "team": {
+    "id": "cda5405c-c0e2-4b33-9569-3edfa0bf9f3e",
+    "name": "BK8 Gresini Racing MotoGP",
+    "legacy_id": 21,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "b9d93efb-3cd0-4681-9de4-c412a866d568",
+    "name": "Ducati",
+    "legacy_id": 110
+   },
+   "best_lap": {
+    "number": 4,
+    "time": "01:40.406"
+   },
+   "total_laps": 6,
+   "top_speed": 356.4,
+   "gap": {
+    "first": "0.782",
+    "prev": "0.022"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "9ad5a383-319e-4249-b673-c5ae58889270",
+   "position": 16,
+   "rider": {
+    "id": "1113c9b8-c231-4ba7-a352-4c11c92ab9df",
+    "full_name": "Augusto Fernandez",
+    "country": {
+     "iso": "ES",
+     "name": "Spain",
+     "region_iso": ""
+    },
+    "legacy_id": 9973,
+    "riders_id": "eb7f90b1-9373-4089-b2f5-adbc234a3526",
+    "number": 47,
+    "riders_api_uuid": "eb7f90b1-9373-4089-b2f5-adbc234a3526"
+   },
+   "team": {
+    "id": "ff11e2b6-694b-47de-8f44-302746b3cdc9",
+    "name": "Yamaha Factory Racing",
+    "legacy_id": 401,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "babb4c4c-3608-4811-93ad-3b88cc407547",
+    "name": "Yamaha",
+    "legacy_id": 3
+   },
+   "best_lap": {
+    "number": 5,
+    "time": "01:40.566"
+   },
+   "total_laps": 6,
+   "top_speed": 350.6,
+   "gap": {
+    "first": "0.942",
+    "prev": "0.160"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "0fbaf300-0780-437c-b223-5dc2b89a708b",
+   "position": 17,
+   "rider": {
+    "id": "56475aa3-f3d1-485a-b6db-ca1149e1b6fa",
+    "full_name": "Alex Rins",
+    "country": {
+     "iso": "ES",
+     "name": "Spain",
+     "region_iso": ""
+    },
+    "legacy_id": 8150,
+    "riders_id": "04bf0ce4-5062-44fc-9745-ec85a8d8f8d3",
+    "number": 42,
+    "riders_api_uuid": "04bf0ce4-5062-44fc-9745-ec85a8d8f8d3"
+   },
+   "team": {
+    "id": "d2893a84-1cf4-48d0-bf4c-8dae43bb1fa1",
+    "name": "Monster Energy Yamaha MotoGP Team",
+    "legacy_id": 15,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "babb4c4c-3608-4811-93ad-3b88cc407547",
+    "name": "Yamaha",
+    "legacy_id": 3
+   },
+   "best_lap": {
+    "number": 6,
+    "time": "01:40.649"
+   },
+   "total_laps": 6,
+   "top_speed": 351.7,
+   "gap": {
+    "first": "1.025",
+    "prev": "0.083"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "ff8eb838-47ff-4145-aaef-4654524270aa",
+   "position": 18,
+   "rider": {
+    "id": "24c03c0c-b2d9-4959-99e0-017214043604",
+    "full_name": "Toprak Razgatlioglu",
+    "country": {
+     "iso": "TR",
+     "name": "T\u00fcrkiye",
+     "region_iso": ""
+    },
+    "legacy_id": 8298,
+    "riders_id": "c883a3b8-17ce-419d-b71b-32c252f6fc7e",
+    "number": 7,
+    "riders_api_uuid": "c883a3b8-17ce-419d-b71b-32c252f6fc7e"
+   },
+   "team": {
+    "id": "3626775f-67dc-4efc-b060-dac64336d332",
+    "name": "Prima Pramac Yamaha MotoGP",
+    "legacy_id": 23,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "babb4c4c-3608-4811-93ad-3b88cc407547",
+    "name": "Yamaha",
+    "legacy_id": 3
+   },
+   "best_lap": {
+    "number": 5,
+    "time": "01:40.684"
+   },
+   "total_laps": 6,
+   "top_speed": 354,
+   "gap": {
+    "first": "1.060",
+    "prev": "0.035"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "21a504d0-31b0-4d30-96a8-beba5e07ff97",
+   "position": 19,
+   "rider": {
+    "id": "ba579548-f026-402b-a607-38db5317d33f",
+    "full_name": "Brad Binder",
+    "country": {
+     "iso": "ZA",
+     "name": "South Africa",
+     "region_iso": ""
+    },
+    "legacy_id": 7646,
+    "riders_id": "ade5ef32-01ea-487c-95ca-491544a668ed",
+    "number": 33,
+    "riders_api_uuid": "ade5ef32-01ea-487c-95ca-491544a668ed"
+   },
+   "team": {
+    "id": "8d4d4643-2948-4016-bbd9-2fe6f69823ff",
+    "name": "Red Bull KTM Factory Racing",
+    "legacy_id": 10,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "be77c017-cc37-41eb-aa09-2977f1789b0f",
+    "name": "KTM",
+    "legacy_id": 298
+   },
+   "best_lap": {
+    "number": 5,
+    "time": "01:40.715"
+   },
+   "total_laps": 6,
+   "top_speed": 357.6,
+   "gap": {
+    "first": "1.091",
+    "prev": "0.031"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "b9c92042-b81b-48e9-83a4-37cdb043dc34",
+   "position": 20,
+   "rider": {
+    "id": "eb47c439-e136-40ff-9534-5c612853f529",
+    "full_name": "Ai Ogura",
+    "country": {
+     "iso": "JP",
+     "name": "Japan",
+     "region_iso": ""
+    },
+    "legacy_id": 8680,
+    "riders_id": "244b6f51-ac33-40ee-876d-9401dc9d1346",
+    "number": 79,
+    "riders_api_uuid": "244b6f51-ac33-40ee-876d-9401dc9d1346"
+   },
+   "team": {
+    "id": "f5bba6a8-eec7-4cea-8c7a-8206a33dcb37",
+    "name": "Trackhouse MotoGP Team",
+    "legacy_id": 22,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "10d5e2bc-4b0b-4875-b936-3962fbb1b877",
+    "name": "Aprilia",
+    "legacy_id": 7
+   },
+   "best_lap": {
+    "number": 5,
+    "time": "01:40.916"
+   },
+   "total_laps": 6,
+   "top_speed": 356.4,
+   "gap": {
+    "first": "1.292",
+    "prev": "0.201"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "9a287985-20ba-4b14-bf80-ac405063189c",
+   "position": 21,
+   "rider": {
+    "id": "3c7598e5-12ec-4e19-9311-1c0e9a017cbe",
+    "full_name": "Diogo Moreira",
+    "country": {
+     "iso": "BR",
+     "name": "Brazil",
+     "region_iso": ""
+    },
+    "legacy_id": 10257,
+    "riders_id": "e2479f8e-dad8-4191-9a6c-9d4aafa8c3a3",
+    "number": 11,
+    "riders_api_uuid": "e2479f8e-dad8-4191-9a6c-9d4aafa8c3a3"
+   },
+   "team": {
+    "id": "a200bec7-1cc6-4197-943b-2278279d1561",
+    "name": "Pro Honda LCR",
+    "legacy_id": 11,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "3a036648-7b14-4257-8c62-245e47e4d42b",
+    "name": "Honda",
+    "legacy_id": 1
+   },
+   "best_lap": {
+    "number": 6,
+    "time": "01:40.922"
+   },
+   "total_laps": 6,
+   "top_speed": 355.2,
+   "gap": {
+    "first": "1.298",
+    "prev": "0.006"
+   },
+   "status": "INSTND"
+  },
+  {
+   "id": "7df40925-0f27-4679-a826-686c49381c82",
+   "position": 22,
+   "rider": {
+    "id": "a73f8ef2-784f-4f52-8511-1d315fd3a459",
+    "full_name": "Franco Morbidelli",
+    "country": {
+     "iso": "IT",
+     "name": "Italy",
+     "region_iso": ""
+    },
+    "legacy_id": 7741,
+    "riders_id": "4113c5f7-33c5-4246-b05b-3f81f4ddbd8f",
+    "number": 21,
+    "riders_api_uuid": "4113c5f7-33c5-4246-b05b-3f81f4ddbd8f"
+   },
+   "team": {
+    "id": "cad533ad-839f-4885-bc72-1b15f7fc4d53",
+    "name": "Pertamina Enduro VR46 Racing Team",
+    "legacy_id": 6,
+    "season": {
+     "id": "e88b4e43-2209-47aa-8e83-0e0b1cedde6e",
+     "year": 2026,
+     "current": true
+    }
+   },
+   "constructor": {
+    "id": "b9d93efb-3cd0-4681-9de4-c412a866d568",
+    "name": "Ducati",
+    "legacy_id": 110
+   },
+   "best_lap": {
+    "number": 4,
+    "time": "01:41.350"
+   },
+   "total_laps": 4,
+   "top_speed": 349.5,
+   "gap": {
+    "first": "1.726",
+    "prev": "0.428"
+   },
+   "status": "INSTND"
+  }
+ ],
+ "laps": [
+  {
+   "lap_number": 1,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
+   "lap_time_ms": 117427.0,
+   "lap_time_str": "1:57.427",
+   "sector_times": [
+    "0:19.306",
+    "0:35.078",
+    "0:19.685",
+    "0:32.037"
+   ],
+   "top_speed": 222.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
+   "lap_time_ms": 101433.0,
+   "lap_time_str": "1:41.433",
+   "sector_times": [
+    "0:17.125",
+    "0:33.314",
+    "0:19.277",
+    "0:31.717"
+   ],
+   "top_speed": 355.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
+   "lap_time_ms": 100046.0,
+   "lap_time_str": "1:40.046",
+   "sector_times": [
+    "0:16.771",
+    "0:32.807",
+    "0:18.942",
+    "0:31.526"
+   ],
+   "top_speed": 354.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
+   "lap_time_ms": 99624.0,
+   "lap_time_str": "1:39.624",
+   "sector_times": [
+    "0:16.611",
+    "0:32.711",
+    "0:18.990",
+    "0:31.312"
+   ],
+   "top_speed": 355.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
+   "lap_time_ms": 99930.0,
+   "lap_time_str": "1:39.930",
+   "sector_times": [
+    "0:16.669",
+    "0:32.775",
+    "0:19.056",
+    "0:31.430"
+   ],
+   "top_speed": 355.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
+   "lap_time_ms": 100193.0,
+   "lap_time_str": "1:40.193",
+   "sector_times": [
+    "0:16.807",
+    "0:32.900",
+    "0:18.980",
+    "0:31.506"
+   ],
+   "top_speed": 351.7,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Fabio QUARTARARO",
+   "rider_number": 20,
+   "lap_time_ms": 156803.0,
+   "lap_time_str": "2:36.803",
+   "sector_times": [
+    "0:18.798",
+    "0:35.320",
+    "0:20.012",
+    "0:32.463"
+   ],
+   "top_speed": 232.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Fabio QUARTARARO",
+   "rider_number": 20,
+   "lap_time_ms": 101123.0,
+   "lap_time_str": "1:41.123",
+   "sector_times": [
+    "0:17.098",
+    "0:33.146",
+    "0:19.160",
+    "0:31.719"
+   ],
+   "top_speed": 347.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Fabio QUARTARARO",
+   "rider_number": 20,
+   "lap_time_ms": 100193.0,
+   "lap_time_str": "1:40.193",
+   "sector_times": [
+    "0:16.770",
+    "0:32.821",
+    "0:19.092",
+    "0:31.510"
+   ],
+   "top_speed": 350.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Fabio QUARTARARO",
+   "rider_number": 20,
+   "lap_time_ms": 103901.0,
+   "lap_time_str": "1:43.901",
+   "sector_times": [
+    "0:16.827",
+    "0:35.724",
+    "0:19.574",
+    "0:31.776"
+   ],
+   "top_speed": 354.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Fabio QUARTARARO",
+   "rider_number": 20,
+   "lap_time_ms": 99766.0,
+   "lap_time_str": "1:39.766",
+   "sector_times": [
+    "0:16.691",
+    "0:32.671",
+    "0:19.000",
+    "0:31.403"
+   ],
+   "top_speed": 349.5,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Fabio QUARTARARO",
+   "rider_number": 20,
+   "lap_time_ms": 99728.0,
+   "lap_time_str": "1:39.728",
+   "sector_times": [
+    "0:16.644",
+    "0:32.671",
+    "0:18.969",
+    "0:31.443"
+   ],
+   "top_speed": 350.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Marco BEZZECCHI",
+   "rider_number": 72,
+   "lap_time_ms": 112310.0,
+   "lap_time_str": "1:52.310",
+   "sector_times": [
+    "0:19.418",
+    "0:34.911",
+    "0:19.589",
+    "0:32.201"
+   ],
+   "top_speed": 223.1,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Marco BEZZECCHI",
+   "rider_number": 72,
+   "lap_time_ms": 101766.0,
+   "lap_time_str": "1:41.766",
+   "sector_times": [
+    "0:17.202",
+    "0:33.313",
+    "0:19.141",
+    "0:32.110"
+   ],
+   "top_speed": 339.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Marco BEZZECCHI",
+   "rider_number": 72,
+   "lap_time_ms": 100328.0,
+   "lap_time_str": "1:40.328",
+   "sector_times": [
+    "0:16.844",
+    "0:33.096",
+    "0:19.001",
+    "0:31.387"
+   ],
+   "top_speed": 347.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Marco BEZZECCHI",
+   "rider_number": 72,
+   "lap_time_ms": 100392.0,
+   "lap_time_str": "1:40.392",
+   "sector_times": [
+    "0:16.754",
+    "0:32.924",
+    "0:19.082",
+    "0:31.632"
+   ],
+   "top_speed": 352.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Marco BEZZECCHI",
+   "rider_number": 72,
+   "lap_time_ms": 99937.0,
+   "lap_time_str": "1:39.937",
+   "sector_times": [
+    "0:16.827",
+    "0:32.879",
+    "0:19.027",
+    "0:31.204"
+   ],
+   "top_speed": 354.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Marco BEZZECCHI",
+   "rider_number": 72,
+   "lap_time_ms": 99775.0,
+   "lap_time_str": "1:39.775",
+   "sector_times": [
+    "0:16.644",
+    "0:32.873",
+    "0:19.033",
+    "0:31.225"
+   ],
+   "top_speed": 350.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Pedro ACOSTA",
+   "rider_number": 37,
+   "lap_time_ms": 111987.0,
+   "lap_time_str": "1:51.987",
+   "sector_times": [
+    "0:19.466",
+    "0:35.206",
+    "0:19.522",
+    "0:32.278"
+   ],
+   "top_speed": 210.5,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Pedro ACOSTA",
+   "rider_number": 37,
+   "lap_time_ms": 101581.0,
+   "lap_time_str": "1:41.581",
+   "sector_times": [
+    "0:17.104",
+    "0:33.553",
+    "0:19.234",
+    "0:31.690"
+   ],
+   "top_speed": 338.5,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Enea BASTIANINI",
+   "rider_number": 23,
+   "lap_time_ms": 119400.0,
+   "lap_time_str": "1:59.400",
+   "sector_times": [
+    "0:19.315",
+    "0:35.392",
+    "0:19.665",
+    "0:32.189"
+   ],
+   "top_speed": 216.8,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Enea BASTIANINI",
+   "rider_number": 23,
+   "lap_time_ms": 101105.0,
+   "lap_time_str": "1:41.105",
+   "sector_times": [
+    "0:17.117",
+    "0:33.346",
+    "0:19.080",
+    "0:31.562"
+   ],
+   "top_speed": 355.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Enea BASTIANINI",
+   "rider_number": 23,
+   "lap_time_ms": 100007.0,
+   "lap_time_str": "1:40.007",
+   "sector_times": [
+    "0:16.768",
+    "0:32.941",
+    "0:18.912",
+    "0:31.386"
+   ],
+   "top_speed": 355.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Enea BASTIANINI",
+   "rider_number": 23,
+   "lap_time_ms": 99976.0,
+   "lap_time_str": "1:39.976",
+   "sector_times": [
+    "0:16.677",
+    "0:32.875",
+    "0:18.927",
+    "0:31.497"
+   ],
+   "top_speed": 355.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Enea BASTIANINI",
+   "rider_number": 23,
+   "lap_time_ms": 103013.0,
+   "lap_time_str": "1:43.013",
+   "sector_times": [
+    "0:16.833",
+    "0:34.557",
+    "0:19.249",
+    "0:32.374"
+   ],
+   "top_speed": 357.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Enea BASTIANINI",
+   "rider_number": 23,
+   "lap_time_ms": 100442.0,
+   "lap_time_str": "1:40.442",
+   "sector_times": [
+    "0:16.754",
+    "0:33.001",
+    "0:18.993",
+    "0:31.694"
+   ],
+   "top_speed": 354.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Jack MILLER",
+   "rider_number": 43,
+   "lap_time_ms": 115725.0,
+   "lap_time_str": "1:55.725",
+   "sector_times": [
+    "0:18.832",
+    "0:34.926",
+    "0:19.771",
+    "0:32.470"
+   ],
+   "top_speed": 231.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Jack MILLER",
+   "rider_number": 43,
+   "lap_time_ms": 101514.0,
+   "lap_time_str": "1:41.514",
+   "sector_times": [
+    "0:17.192",
+    "0:33.350",
+    "0:19.254",
+    "0:31.718"
+   ],
+   "top_speed": 352.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Jack MILLER",
+   "rider_number": 43,
+   "lap_time_ms": 100496.0,
+   "lap_time_str": "1:40.496",
+   "sector_times": [
+    "0:16.751",
+    "0:33.034",
+    "0:19.130",
+    "0:31.581"
+   ],
+   "top_speed": 354.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Jack MILLER",
+   "rider_number": 43,
+   "lap_time_ms": 100139.0,
+   "lap_time_str": "1:40.139",
+   "sector_times": [
+    "0:16.674",
+    "0:32.854",
+    "0:19.048",
+    "0:31.563"
+   ],
+   "top_speed": 352.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Jack MILLER",
+   "rider_number": 43,
+   "lap_time_ms": 100178.0,
+   "lap_time_str": "1:40.178",
+   "sector_times": [
+    "0:16.826",
+    "0:32.843",
+    "0:19.055",
+    "0:31.454"
+   ],
+   "top_speed": 350.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Jack MILLER",
+   "rider_number": 43,
+   "lap_time_ms": 100046.0,
+   "lap_time_str": "1:40.046",
+   "sector_times": [
+    "0:16.613",
+    "0:32.856",
+    "0:19.011",
+    "0:31.566"
+   ],
+   "top_speed": 351.7,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
+   "lap_time_ms": 111463.0,
+   "lap_time_str": "1:51.463",
+   "sector_times": [
+    "0:19.334",
+    "0:35.350",
+    "0:19.909",
+    "0:33.157"
+   ],
+   "top_speed": 219.5,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
+   "lap_time_ms": 102328.0,
+   "lap_time_str": "1:42.328",
+   "sector_times": [
+    "0:17.277",
+    "0:33.715",
+    "0:19.345",
+    "0:31.991"
+   ],
+   "top_speed": 336.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
+   "lap_time_ms": 100943.0,
+   "lap_time_str": "1:40.943",
+   "sector_times": [
+    "0:16.806",
+    "0:33.250",
+    "0:19.163",
+    "0:31.724"
+   ],
+   "top_speed": 346.1,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
+   "lap_time_ms": 100366.0,
+   "lap_time_str": "1:40.366",
+   "sector_times": [
+    "0:16.782",
+    "0:33.034",
+    "0:19.148",
+    "0:31.402"
+   ],
+   "top_speed": 342.8,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
+   "lap_time_ms": 100193.0,
+   "lap_time_str": "1:40.193",
+   "sector_times": [
+    "0:16.698",
+    "0:32.991",
+    "0:19.129",
+    "0:31.375"
+   ],
+   "top_speed": 349.5,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
+   "lap_time_ms": 100072.0,
+   "lap_time_str": "1:40.072",
+   "sector_times": [
+    "0:16.504",
+    "0:33.012",
+    "0:19.082",
+    "0:31.474"
+   ],
+   "top_speed": 357.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Raul FERNANDEZ",
+   "rider_number": 25,
+   "lap_time_ms": 123324.0,
+   "lap_time_str": "2:03.324",
+   "sector_times": [
+    "0:20.135",
+    "0:35.402",
+    "0:20.230",
+    "0:46.352"
+   ],
+   "top_speed": 213.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": true,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Raul FERNANDEZ",
+   "rider_number": 25,
+   "lap_time_ms": 132886.0,
+   "lap_time_str": "2:12.886",
+   "sector_times": [
+    "0:19.042",
+    "0:34.348",
+    "0:19.635",
+    "0:32.078"
+   ],
+   "top_speed": 223.1,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Raul FERNANDEZ",
+   "rider_number": 25,
+   "lap_time_ms": 100962.0,
+   "lap_time_str": "1:40.962",
+   "sector_times": [
+    "0:17.117",
+    "0:33.275",
+    "0:19.138",
+    "0:31.432"
+   ],
+   "top_speed": 349.5,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Raul FERNANDEZ",
+   "rider_number": 25,
+   "lap_time_ms": 106760.0,
+   "lap_time_str": "1:46.760",
+   "sector_times": [
+    "0:17.527",
+    "0:37.071",
+    "0:19.534",
+    "0:32.628"
+   ],
+   "top_speed": 350.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Raul FERNANDEZ",
+   "rider_number": 25,
+   "lap_time_ms": 100139.0,
+   "lap_time_str": "1:40.139",
+   "sector_times": [
+    "0:16.770",
+    "0:32.946",
+    "0:19.035",
+    "0:31.388"
+   ],
+   "top_speed": 354.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Raul FERNANDEZ",
+   "rider_number": 25,
+   "lap_time_ms": 100077.0,
+   "lap_time_str": "1:40.077",
+   "sector_times": [
+    "0:16.829",
+    "0:32.936",
+    "0:18.980",
+    "0:31.332"
+   ],
+   "top_speed": 354.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Johann ZARCO",
+   "rider_number": 5,
+   "lap_time_ms": 124435.0,
+   "lap_time_str": "2:04.435",
+   "sector_times": [
+    "0:19.142",
+    "0:35.213",
+    "0:20.114",
+    "0:46.553"
+   ],
+   "top_speed": 213.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": true,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Johann ZARCO",
+   "rider_number": 5,
+   "lap_time_ms": 127994.0,
+   "lap_time_str": "2:07.994",
+   "sector_times": [
+    "0:17.879",
+    "0:34.049",
+    "0:19.502",
+    "0:32.293"
+   ],
+   "top_speed": 223.1,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Johann ZARCO",
+   "rider_number": 5,
+   "lap_time_ms": 101168.0,
+   "lap_time_str": "1:41.168",
+   "sector_times": [
+    "0:17.119",
+    "0:33.038",
+    "0:19.349",
+    "0:31.662"
+   ],
+   "top_speed": 349.5,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Johann ZARCO",
+   "rider_number": 5,
+   "lap_time_ms": 100151.0,
+   "lap_time_str": "1:40.151",
+   "sector_times": [
+    "0:16.739",
+    "0:32.814",
+    "0:19.046",
+    "0:31.552"
+   ],
+   "top_speed": 352.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Johann ZARCO",
+   "rider_number": 5,
+   "lap_time_ms": 100096.0,
+   "lap_time_str": "1:40.096",
+   "sector_times": [
+    "0:16.739",
+    "0:32.785",
+    "0:19.037",
+    "0:31.535"
+   ],
+   "top_speed": 351.7,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Johann ZARCO",
+   "rider_number": 5,
+   "lap_time_ms": 100703.0,
+   "lap_time_str": "1:40.703",
+   "sector_times": [
+    "0:16.739",
+    "0:32.953",
+    "0:19.222",
+    "0:31.789"
+   ],
+   "top_speed": 349.5,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Luca MARINI",
+   "rider_number": 10,
+   "lap_time_ms": 120632.0,
+   "lap_time_str": "2:00.632",
+   "sector_times": [
+    "0:20.084",
+    "0:35.319",
+    "0:19.889",
+    "0:32.118"
+   ],
+   "top_speed": 0.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Luca MARINI",
+   "rider_number": 10,
+   "lap_time_ms": 100842.0,
+   "lap_time_str": "1:40.842",
+   "sector_times": [
+    "0:16.969",
+    "0:33.141",
+    "0:19.120",
+    "0:31.612"
+   ],
+   "top_speed": 354.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Luca MARINI",
+   "rider_number": 10,
+   "lap_time_ms": 100126.0,
+   "lap_time_str": "1:40.126",
+   "sector_times": [
+    "0:16.759",
+    "0:32.987",
+    "0:18.999",
+    "0:31.381"
+   ],
+   "top_speed": 355.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Luca MARINI",
+   "rider_number": 10,
+   "lap_time_ms": 100104.0,
+   "lap_time_str": "1:40.104",
+   "sector_times": [
+    "0:16.637",
+    "0:32.888",
+    "0:19.019",
+    "0:31.560"
+   ],
+   "top_speed": 350.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Luca MARINI",
+   "rider_number": 10,
+   "lap_time_ms": 100797.0,
+   "lap_time_str": "1:40.797",
+   "sector_times": [
+    "0:16.728",
+    "0:33.143",
+    "0:19.148",
+    "0:31.778"
+   ],
+   "top_speed": 346.1,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Luca MARINI",
+   "rider_number": 10,
+   "lap_time_ms": 100301.0,
+   "lap_time_str": "1:40.301",
+   "sector_times": [
+    "0:16.696",
+    "0:32.894",
+    "0:19.122",
+    "0:31.589"
+   ],
+   "top_speed": 352.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Luca MARINI",
+   "rider_number": 10,
+   "lap_time_ms": 115105.0,
+   "lap_time_str": "1:55.105",
+   "sector_times": [
+    "0:19.173",
+    "0:34.944",
+    "0:19.517",
+    "0:31.949"
+   ],
+   "top_speed": 225.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Luca MARINI",
+   "rider_number": 10,
+   "lap_time_ms": 101674.0,
+   "lap_time_str": "1:41.674",
+   "sector_times": [
+    "0:17.235",
+    "0:33.581",
+    "0:19.155",
+    "0:31.703"
+   ],
+   "top_speed": 355.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Luca MARINI",
+   "rider_number": 10,
+   "lap_time_ms": 100466.0,
+   "lap_time_str": "1:40.466",
+   "sector_times": [
+    "0:16.771",
+    "0:33.217",
+    "0:19.120",
+    "0:31.358"
+   ],
+   "top_speed": 352.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Luca MARINI",
+   "rider_number": 10,
+   "lap_time_ms": 100123.0,
+   "lap_time_str": "1:40.123",
+   "sector_times": [
+    "0:16.675",
+    "0:33.031",
+    "0:19.050",
+    "0:31.367"
+   ],
+   "top_speed": 357.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Luca MARINI",
+   "rider_number": 10,
+   "lap_time_ms": 100027.0,
+   "lap_time_str": "1:40.027",
+   "sector_times": [
+    "0:16.585",
+    "0:33.078",
+    "0:18.973",
+    "0:31.391"
+   ],
+   "top_speed": 356.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Luca MARINI",
+   "rider_number": 10,
+   "lap_time_ms": 100427.0,
+   "lap_time_str": "1:40.427",
+   "sector_times": [
+    "0:16.626",
+    "0:33.159",
+    "0:19.041",
+    "0:31.601"
+   ],
+   "top_speed": 356.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Fermin ALDEGUER",
+   "rider_number": 54,
+   "lap_time_ms": 110361.0,
+   "lap_time_str": "1:50.361",
+   "sector_times": [
+    "0:19.455",
+    "0:35.377",
+    "0:19.989",
+    "0:32.986"
+   ],
+   "top_speed": 222.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Fermin ALDEGUER",
+   "rider_number": 54,
+   "lap_time_ms": 102010.0,
+   "lap_time_str": "1:42.010",
+   "sector_times": [
+    "0:17.229",
+    "0:33.704",
+    "0:19.328",
+    "0:31.749"
+   ],
+   "top_speed": 347.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Fermin ALDEGUER",
+   "rider_number": 54,
+   "lap_time_ms": 100815.0,
+   "lap_time_str": "1:40.815",
+   "sector_times": [
+    "0:16.920",
+    "0:33.242",
+    "0:19.069",
+    "0:31.584"
+   ],
+   "top_speed": 347.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Fermin ALDEGUER",
+   "rider_number": 54,
+   "lap_time_ms": 100330.0,
+   "lap_time_str": "1:40.330",
+   "sector_times": [
+    "0:16.764",
+    "0:33.132",
+    "0:19.116",
+    "0:31.318"
+   ],
+   "top_speed": 348.3,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Fermin ALDEGUER",
+   "rider_number": 54,
+   "lap_time_ms": 110773.0,
+   "lap_time_str": "1:50.773",
+   "sector_times": [
+    "0:17.677",
+    "0:41.805",
+    "0:19.461",
+    "0:31.830"
+   ],
+   "top_speed": 348.3,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Fermin ALDEGUER",
+   "rider_number": 54,
+   "lap_time_ms": 104069.0,
+   "lap_time_str": "1:44.069",
+   "sector_times": [
+    "0:16.658",
+    "0:34.286",
+    "0:20.756",
+    "0:32.369"
+   ],
+   "top_speed": 355.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Maverick VI\u00d1ALES",
+   "rider_number": 12,
+   "lap_time_ms": 111255.0,
+   "lap_time_str": "1:51.255",
+   "sector_times": [
+    "0:20.852",
+    "0:35.189",
+    "0:20.081",
+    "0:33.247"
+   ],
+   "top_speed": 213.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Maverick VI\u00d1ALES",
+   "rider_number": 12,
+   "lap_time_ms": 101781.0,
+   "lap_time_str": "1:41.781",
+   "sector_times": [
+    "0:17.354",
+    "0:33.424",
+    "0:19.214",
+    "0:31.789"
+   ],
+   "top_speed": 355.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Maverick VI\u00d1ALES",
+   "rider_number": 12,
+   "lap_time_ms": 100804.0,
+   "lap_time_str": "1:40.804",
+   "sector_times": [
+    "0:16.909",
+    "0:33.204",
+    "0:19.127",
+    "0:31.564"
+   ],
+   "top_speed": 347.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Maverick VI\u00d1ALES",
+   "rider_number": 12,
+   "lap_time_ms": 100384.0,
+   "lap_time_str": "1:40.384",
+   "sector_times": [
+    "0:16.810",
+    "0:33.023",
+    "0:19.071",
+    "0:31.480"
+   ],
+   "top_speed": 348.3,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Maverick VI\u00d1ALES",
+   "rider_number": 12,
+   "lap_time_ms": 102606.0,
+   "lap_time_str": "1:42.606",
+   "sector_times": [
+    "0:17.734",
+    "0:34.243",
+    "0:19.025",
+    "0:31.604"
+   ],
+   "top_speed": 355.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Maverick VI\u00d1ALES",
+   "rider_number": 12,
+   "lap_time_ms": 103946.0,
+   "lap_time_str": "1:43.946",
+   "sector_times": [
+    "0:16.807",
+    "0:35.158",
+    "0:19.916",
+    "0:32.064"
+   ],
+   "top_speed": 356.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Alex MARQUEZ",
+   "rider_number": 73,
+   "lap_time_ms": 118349.0,
+   "lap_time_str": "1:58.349",
+   "sector_times": [
+    "0:19.463",
+    "0:35.614",
+    "0:20.333",
+    "0:32.512"
+   ],
+   "top_speed": 219.5,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Alex MARQUEZ",
+   "rider_number": 73,
+   "lap_time_ms": 102047.0,
+   "lap_time_str": "1:42.047",
+   "sector_times": [
+    "0:17.314",
+    "0:33.759",
+    "0:19.258",
+    "0:31.716"
+   ],
+   "top_speed": 354.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Alex MARQUEZ",
+   "rider_number": 73,
+   "lap_time_ms": 100731.0,
+   "lap_time_str": "1:40.731",
+   "sector_times": [
+    "0:16.969",
+    "0:33.233",
+    "0:19.045",
+    "0:31.484"
+   ],
+   "top_speed": 352.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Alex MARQUEZ",
+   "rider_number": 73,
+   "lap_time_ms": 100406.0,
+   "lap_time_str": "1:40.406",
+   "sector_times": [
+    "0:16.744",
+    "0:33.079",
+    "0:19.120",
+    "0:31.463"
+   ],
+   "top_speed": 354.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Alex MARQUEZ",
+   "rider_number": 73,
+   "lap_time_ms": 101620.0,
+   "lap_time_str": "1:41.620",
+   "sector_times": [
+    "0:16.719",
+    "0:33.167",
+    "0:19.142",
+    "0:32.592"
+   ],
+   "top_speed": 355.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Alex MARQUEZ",
+   "rider_number": 73,
+   "lap_time_ms": 106250.0,
+   "lap_time_str": "1:46.250",
+   "sector_times": [
+    "0:16.806",
+    "0:37.360",
+    "0:19.625",
+    "0:32.459"
+   ],
+   "top_speed": 356.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Augusto FERNANDEZ",
+   "rider_number": 47,
+   "lap_time_ms": 156968.0,
+   "lap_time_str": "2:36.968",
+   "sector_times": [
+    "0:20.326",
+    "0:35.539",
+    "0:19.986",
+    "0:32.098"
+   ],
+   "top_speed": 217.3,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Augusto FERNANDEZ",
+   "rider_number": 47,
+   "lap_time_ms": 101668.0,
+   "lap_time_str": "1:41.668",
+   "sector_times": [
+    "0:17.296",
+    "0:33.318",
+    "0:19.266",
+    "0:31.788"
+   ],
+   "top_speed": 338.5,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Augusto FERNANDEZ",
+   "rider_number": 47,
+   "lap_time_ms": 100637.0,
+   "lap_time_str": "1:40.637",
+   "sector_times": [
+    "0:16.797",
+    "0:33.055",
+    "0:19.214",
+    "0:31.571"
+   ],
+   "top_speed": 343.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Augusto FERNANDEZ",
+   "rider_number": 47,
+   "lap_time_ms": 103398.0,
+   "lap_time_str": "1:43.398",
+   "sector_times": [
+    "0:16.746",
+    "0:33.152",
+    "0:19.259",
+    "0:34.241"
+   ],
+   "top_speed": 350.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Alex RINS",
+   "rider_number": 42,
+   "lap_time_ms": 110567.0,
+   "lap_time_str": "1:50.567",
+   "sector_times": [
+    "0:19.749",
+    "0:35.370",
+    "0:19.981",
+    "0:32.987"
+   ],
+   "top_speed": 221.3,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Alex RINS",
+   "rider_number": 42,
+   "lap_time_ms": 102234.0,
+   "lap_time_str": "1:42.234",
+   "sector_times": [
+    "0:17.318",
+    "0:33.760",
+    "0:19.332",
+    "0:31.824"
+   ],
+   "top_speed": 339.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Alex RINS",
+   "rider_number": 42,
+   "lap_time_ms": 100868.0,
+   "lap_time_str": "1:40.868",
+   "sector_times": [
+    "0:16.849",
+    "0:33.227",
+    "0:19.170",
+    "0:31.622"
+   ],
+   "top_speed": 346.1,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Alex RINS",
+   "rider_number": 42,
+   "lap_time_ms": 100867.0,
+   "lap_time_str": "1:40.867",
+   "sector_times": [
+    "0:16.784",
+    "0:33.058",
+    "0:19.210",
+    "0:31.815"
+   ],
+   "top_speed": 348.3,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Alex RINS",
+   "rider_number": 42,
+   "lap_time_ms": 106803.0,
+   "lap_time_str": "1:46.803",
+   "sector_times": [
+    "0:17.905",
+    "0:36.745",
+    "0:19.539",
+    "0:32.613"
+   ],
+   "top_speed": 351.7,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Alex RINS",
+   "rider_number": 42,
+   "lap_time_ms": 100649.0,
+   "lap_time_str": "1:40.649",
+   "sector_times": [
+    "0:16.801",
+    "0:33.128",
+    "0:19.119",
+    "0:31.601"
+   ],
+   "top_speed": 342.8,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Toprak RAZGATLIOGLU",
+   "rider_number": 7,
+   "lap_time_ms": 157092.0,
+   "lap_time_str": "2:37.092",
+   "sector_times": [
+    "0:18.305",
+    "0:34.819",
+    "0:19.605",
+    "0:32.031"
+   ],
+   "top_speed": 236.3,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Toprak RAZGATLIOGLU",
+   "rider_number": 7,
+   "lap_time_ms": 101056.0,
+   "lap_time_str": "1:41.056",
+   "sector_times": [
+    "0:17.004",
+    "0:33.267",
+    "0:19.129",
+    "0:31.656"
+   ],
+   "top_speed": 352.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Toprak RAZGATLIOGLU",
+   "rider_number": 7,
+   "lap_time_ms": 101216.0,
+   "lap_time_str": "1:41.216",
+   "sector_times": [
+    "0:16.731",
+    "0:33.850",
+    "0:19.130",
+    "0:31.505"
+   ],
+   "top_speed": 352.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Toprak RAZGATLIOGLU",
+   "rider_number": 7,
+   "lap_time_ms": 102909.0,
+   "lap_time_str": "1:42.909",
+   "sector_times": [
+    "0:17.023",
+    "0:33.016",
+    "0:19.153",
+    "0:33.717"
+   ],
+   "top_speed": 354.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Toprak RAZGATLIOGLU",
+   "rider_number": 7,
+   "lap_time_ms": 100684.0,
+   "lap_time_str": "1:40.684",
+   "sector_times": [
+    "0:16.925",
+    "0:32.980",
+    "0:19.140",
+    "0:31.639"
+   ],
+   "top_speed": 347.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Toprak RAZGATLIOGLU",
+   "rider_number": 7,
+   "lap_time_ms": 100771.0,
+   "lap_time_str": "1:40.771",
+   "sector_times": [
+    "0:16.836",
+    "0:33.073",
+    "0:19.143",
+    "0:31.719"
+   ],
+   "top_speed": 345.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Brad BINDER",
+   "rider_number": 33,
+   "lap_time_ms": 113462.0,
+   "lap_time_str": "1:53.462",
+   "sector_times": [
+    "0:19.641",
+    "0:35.236",
+    "0:19.796",
+    "0:32.609"
+   ],
+   "top_speed": 0.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Brad BINDER",
+   "rider_number": 33,
+   "lap_time_ms": 102189.0,
+   "lap_time_str": "1:42.189",
+   "sector_times": [
+    "0:17.677",
+    "0:33.586",
+    "0:19.193",
+    "0:31.733"
+   ],
+   "top_speed": 345.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Brad BINDER",
+   "rider_number": 33,
+   "lap_time_ms": 103796.0,
+   "lap_time_str": "1:43.796",
+   "sector_times": [
+    "0:16.984",
+    "0:33.315",
+    "0:18.999",
+    "0:34.498"
+   ],
+   "top_speed": 352.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Brad BINDER",
+   "rider_number": 33,
+   "lap_time_ms": 100852.0,
+   "lap_time_str": "1:40.852",
+   "sector_times": [
+    "0:17.059",
+    "0:33.223",
+    "0:18.973",
+    "0:31.597"
+   ],
+   "top_speed": 351.7,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Brad BINDER",
+   "rider_number": 33,
+   "lap_time_ms": 100715.0,
+   "lap_time_str": "1:40.715",
+   "sector_times": [
+    "0:16.911",
+    "0:33.096",
+    "0:19.043",
+    "0:31.665"
+   ],
+   "top_speed": 356.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Brad BINDER",
+   "rider_number": 33,
+   "lap_time_ms": 100770.0,
+   "lap_time_str": "1:40.770",
+   "sector_times": [
+    "0:16.738",
+    "0:33.128",
+    "0:19.092",
+    "0:31.812"
+   ],
+   "top_speed": 357.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Ai OGURA",
+   "rider_number": 79,
+   "lap_time_ms": 120981.0,
+   "lap_time_str": "2:00.981",
+   "sector_times": [
+    "0:19.204",
+    "0:35.612",
+    "0:19.921",
+    "0:32.659"
+   ],
+   "top_speed": 214.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Ai OGURA",
+   "rider_number": 79,
+   "lap_time_ms": 101953.0,
+   "lap_time_str": "1:41.953",
+   "sector_times": [
+    "0:17.284",
+    "0:33.445",
+    "0:19.310",
+    "0:31.914"
+   ],
+   "top_speed": 348.3,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Ai OGURA",
+   "rider_number": 79,
+   "lap_time_ms": 101364.0,
+   "lap_time_str": "1:41.364",
+   "sector_times": [
+    "0:17.109",
+    "0:33.248",
+    "0:19.280",
+    "0:31.727"
+   ],
+   "top_speed": 351.7,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Ai OGURA",
+   "rider_number": 79,
+   "lap_time_ms": 101052.0,
+   "lap_time_str": "1:41.052",
+   "sector_times": [
+    "0:16.927",
+    "0:33.323",
+    "0:19.234",
+    "0:31.568"
+   ],
+   "top_speed": 348.3,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Ai OGURA",
+   "rider_number": 79,
+   "lap_time_ms": 100916.0,
+   "lap_time_str": "1:40.916",
+   "sector_times": [
+    "0:16.868",
+    "0:33.243",
+    "0:19.099",
+    "0:31.706"
+   ],
+   "top_speed": 350.6,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Ai OGURA",
+   "rider_number": 79,
+   "lap_time_ms": 100922.0,
+   "lap_time_str": "1:40.922",
+   "sector_times": [
+    "0:16.819",
+    "0:33.230",
+    "0:19.213",
+    "0:31.660"
+   ],
+   "top_speed": 356.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Ai OGURA",
+   "rider_number": 79,
+   "lap_time_ms": 112260.0,
+   "lap_time_str": "1:52.260",
+   "sector_times": [
+    "0:19.556",
+    "0:35.242",
+    "0:19.629",
+    "0:32.295"
+   ],
+   "top_speed": 211.7,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Franco MORBIDELLI",
+   "rider_number": 21,
+   "lap_time_ms": 149732.0,
+   "lap_time_str": "2:29.732",
+   "sector_times": [
+    "0:19.777",
+    "0:37.111",
+    "0:20.058",
+    "0:52.538"
+   ],
+   "top_speed": 208.8,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": true,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Franco MORBIDELLI",
+   "rider_number": 21,
+   "lap_time_ms": 337312.0,
+   "lap_time_str": "5:37.312",
+   "sector_times": [
+    "0:19.781",
+    "0:36.264",
+    "0:20.237",
+    "0:33.094"
+   ],
+   "top_speed": 218.1,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Franco MORBIDELLI",
+   "rider_number": 21,
+   "lap_time_ms": 102734.0,
+   "lap_time_str": "1:42.734",
+   "sector_times": [
+    "0:17.298",
+    "0:33.919",
+    "0:19.356",
+    "0:32.161"
+   ],
+   "top_speed": 349.5,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Franco MORBIDELLI",
+   "rider_number": 21,
+   "lap_time_ms": 101350.0,
+   "lap_time_str": "1:41.350",
+   "sector_times": [
+    "0:16.906",
+    "0:33.292",
+    "0:19.267",
+    "0:31.885"
+   ],
+   "top_speed": 347.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  }
+ ]
+}
