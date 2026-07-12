@@ -22,7 +22,7 @@ jobs:
     # Maintainer-only email digest: these secrets exist only in this repo
     # (never in forks), so the mail step below is skipped everywhere else.
     env:
-      MAIL_TO: ${{ secrets.MAIL_TO }}
+      MAIL_CONFIGURED: ${{ secrets.MAIL_TO != '' && secrets.MAIL_PASSWORD != '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -57,7 +57,7 @@ jobs:
           git push
 
       - name: Email sync report to maintainer
-        if: env.MAIL_TO != ''
+        if: env.MAIL_CONFIGURED == 'true'
         uses: dawidd6/action-send-mail@v6
         with:
           server_address: smtp.gmail.com
