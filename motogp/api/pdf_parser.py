@@ -101,10 +101,88 @@ _HDR_B = re.compile(r"^(\d+)(?:st|nd|rd|th)\s+(\d{1,3})$")
 _LAP_START = re.compile(r"^(\d+)\s+(\d{1,2}'\d{2}\.\d{3})")
 _RUNS = re.compile(r"Runs=\d+")
 
+# Run header carrying per-axle compounds. The column-split layout drifts across
+# seasons (tyre data exists in the Analysis PDF from 2018 on), and older years
+# glue compounds to adjacent labels with no spaces, so we match the compound
+# tokens explicitly instead of splitting on whitespace:
+#   2025-26: 'Run # 1 Front Tyre Slick-Hard Rear Tyre Slick-Medium'
+#   2023:    '1 Front Tyre Slick-Hard Rear Tyre Slick-Medium'   ('Run #' on its own line)
+#   2024:    '1 Front TyreSlick-Hard Rear TyreSlick-Medium'     (compound glued to 'Tyre')
+#   2018-22: '1 Front Tyre Slick-MediumRear TyreSlick-Medium'   (compound glued to 'Rear')
+# The compound families are stable in MotoGP; a novel one (or 'missing data')
+# simply yields a None compound for that axle rather than dropping the run.
+_COMPOUND = r"(?:Slick|Wet|Rain)-(?:Soft|Medium|Hard)|Intermediate"
+_RUN_HEADER = re.compile(
+    r"^(?:Run\s*#\s*)?(\d+)?\s*Front\s+Tyre\s*(" + _COMPOUND + r")?"
+    r"\s*Rear\s+Tyre\s*(" + _COMPOUND + r")?",
+    re.IGNORECASE,
+)
+_STRAY_RUN = re.compile(r"^Run\s*#\s*\d*$", re.IGNORECASE)
+# Tyre-age line that follows a run header: two tokens, one per axle. Each is
+# either 'New Tyre' or 'NLaps at start' (the digit is glued: '6Laps at start').
+_TYRE_AGE_TOKEN = re.compile(r"New\s+Tyre|\d*\s*Laps?\s+at\s+start", re.IGNORECASE)
+
+_EMPTY_TYRE = {
+    "run_number": None,
+    "front_tyre": None,
+    "rear_tyre": None,
+    "front_tyre_age": None,   # laps used before this run; 0 == new tyre
+    "rear_tyre_age": None,
+}
+
 
 def _is_noise(line: str) -> bool:
     s = line.strip()
     return not s or bool(_NOISE.search(s))
+
+
+def _compound(v: Optional[str]) -> Optional[str]:
+    """Normalize a matched compound to 'Slick-Medium' casing; None if absent."""
+    if not v:
+        return None
+    return "-".join(p.capitalize() for p in v.split("-"))
+
+
+def _parse_run_header(line: str) -> Optional[dict]:
+    """'Run # N Front Tyre X Rear Tyre Y' → run number + per-axle compounds.
+
+    Handles the season layout variants (see ``_RUN_HEADER``). An axle whose
+    compound is absent or unrecognized (e.g. 'missing data') yields None for
+    that axle while still capturing the run and the other axle.
+    """
+    m = _RUN_HEADER.match(line.strip())
+    if not m:
+        return None
+    return {
+        "run_number": int(m.group(1)) if m.group(1) else None,
+        "front_tyre": _compound(m.group(2)),
+        "rear_tyre": _compound(m.group(3)),
+    }
+
+
+def _tyre_age(token: str) -> Optional[int]:
+    """'New Tyre' → 0; 'NLaps at start' → N; unparseable ('missing data') → None."""
+    if not token:
+        return None
+    if re.search(r"new\s+tyre", token, re.IGNORECASE):
+        return 0
+    m = re.search(r"(\d+)", token)
+    return int(m.group(1)) if m else None
+
+
+def _parse_tyre_age(line: str) -> Optional[dict]:
+    """Age line following a run header → {front_tyre_age, rear_tyre_age}.
+
+    Returns None if the line holds no tyre-age tokens, so a run header not
+    followed by an age line leaves ages unknown rather than mis-tagging a lap.
+    """
+    tokens = _TYRE_AGE_TOKEN.findall(line.strip())
+    if not tokens:
+        return None
+    return {
+        "front_tyre_age": _tyre_age(tokens[0]) if len(tokens) > 0 else None,
+        "rear_tyre_age": _tyre_age(tokens[1]) if len(tokens) > 1 else None,
+    }
 
 
 def _split_columns(page, mid_frac: float = 0.50) -> tuple[list[str], list[str]]:
@@ -242,7 +320,9 @@ def _parse_column(lines: list[str]) -> list[dict]:
                 team = cand
                 i += 1
 
-        while i < n and _is_noise(lines[i]):
+        # Skip forward to the first lap block, but never past a run header —
+        # the lap loop below owns those (they carry the stint's tyre state).
+        while i < n and _is_noise(lines[i]) and not _parse_run_header(lines[i]):
             i += 1
         if i < n and _RUNS.search(lines[i]):
             i += 1
@@ -252,17 +332,45 @@ def _parse_column(lines: list[str]) -> list[dict]:
             "number": number, "pos": pos, "team": team, "laps": [],
         }
 
+        current_tyre = dict(_EMPTY_TYRE)
         while i < n:
-            while i < n and _is_noise(lines[i]):
-                i += 1
-            if i >= n:
-                break
             ll = lines[i].strip()
+
+            # A run header opens a new stint: update the tyre state that every
+            # following lap inherits, then consume its age line if present.
+            run_hdr = _parse_run_header(ll)
+            if run_hdr:
+                current_tyre = dict(_EMPTY_TYRE)
+                current_tyre.update(run_hdr)
+                i += 1
+                # The age line usually follows immediately, but older layouts
+                # slip a bare 'Run #' remnant in between — look past it, but
+                # stop at real lap data or the next stint.
+                for _ in range(2):
+                    if i >= n:
+                        break
+                    nxt = lines[i].strip()
+                    ages = _parse_tyre_age(nxt)
+                    if ages:
+                        current_tyre.update(ages)
+                        i += 1
+                        break
+                    if _STRAY_RUN.match(nxt):
+                        i += 1
+                        continue
+                    break
+                continue
+
+            if _is_noise(ll):
+                i += 1
+                continue
+
             ll_clean = re.sub(r"(\b[A-Z]{3})\s+\d+\s+\d+'.*$", r"\1", ll).strip()
             if _parse_header_a(ll_clean) or _parse_header_a(ll):
                 break
             lap = _parse_lap(ll)
             if lap:
+                lap.update(current_tyre)
                 rider["laps"].append(lap)
             i += 1
 

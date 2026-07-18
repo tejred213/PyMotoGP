@@ -22,6 +22,8 @@ from motogp.api.pdf_parser import (
     _parse_column,
     _parse_header_a,
     _parse_lap,
+    _parse_run_header,
+    _parse_tyre_age,
     fmt_sector,
     fmt_time,
     parse_analysis_pdf,
@@ -227,6 +229,121 @@ class TestColumnParser:
         assert riders == []
 
 
+# ── tyre run header + age ───────────────────────────────────────────────────
+
+class TestTyreParser:
+
+    def test_run_header_dry(self):
+        out = _parse_run_header("Run # 1 Front Tyre Slick-Hard Rear Tyre Slick-Medium")
+        assert out == {"run_number": 1, "front_tyre": "Slick-Hard", "rear_tyre": "Slick-Medium"}
+
+    def test_run_header_wet(self):
+        out = _parse_run_header("Run # 2 Front Tyre Wet-Medium Rear Tyre Wet-Soft")
+        assert out["front_tyre"] == "Wet-Medium"
+        assert out["rear_tyre"] == "Wet-Soft"
+
+    def test_run_header_missing_data_compound(self):
+        # A damaged/unlogged tyre reads 'missing data' → normalized to None.
+        out = _parse_run_header("Run # 2 Front Tyre Wet-Medium Rear Tyre missing data")
+        assert out["front_tyre"] == "Wet-Medium"
+        assert out["rear_tyre"] is None
+
+    def test_run_header_old_2023_layout(self):
+        # 2023: run number leads, 'Run #' sits on its own line elsewhere.
+        out = _parse_run_header("1 Front Tyre Slick-Hard Rear Tyre Slick-Medium")
+        assert out == {"run_number": 1, "front_tyre": "Slick-Hard", "rear_tyre": "Slick-Medium"}
+
+    def test_run_header_old_2024_glued_compound(self):
+        # 2024: compound glued to the 'Tyre' label with no space.
+        out = _parse_run_header("1 Front TyreSlick-Hard Rear TyreSlick-Medium")
+        assert out["front_tyre"] == "Slick-Hard"
+        assert out["rear_tyre"] == "Slick-Medium"
+
+    def test_run_header_2018_22_compound_glued_to_rear(self):
+        # 2018-22: front compound glued to the 'Rear' label with no space.
+        out = _parse_run_header("1 Front Tyre Slick-MediumRear TyreSlick-Medium")
+        assert out["front_tyre"] == "Slick-Medium"
+        assert out["rear_tyre"] == "Slick-Medium"
+
+    def test_run_header_front_dropped_rear_present(self):
+        # Splitter dropped the front compound; rear still recoverable.
+        out = _parse_run_header("1 Front Tyre Rear TyreSlick-Soft")
+        assert out["front_tyre"] is None
+        assert out["rear_tyre"] == "Slick-Soft"
+
+    def test_run_header_empty_compounds_reset_to_none(self):
+        # Both compounds dropped: still a run boundary, so it resets tyre state
+        # to None rather than letting a prior run's compound bleed through.
+        out = _parse_run_header("1 Front Tyre Rear Tyre")
+        assert out == {"run_number": 1, "front_tyre": None, "rear_tyre": None}
+
+    def test_run_header_rejects_non_header(self):
+        assert _parse_run_header("Francesco BAGNAIA DUCATI ITA") is None
+        assert _parse_run_header("1 1'30.500 22.0 22.5 23.0 23.0 320") is None
+
+    def test_tyre_age_new(self):
+        assert _parse_tyre_age("New Tyre New Tyre") == {
+            "front_tyre_age": 0, "rear_tyre_age": 0}
+
+    def test_tyre_age_used_glued_digit(self):
+        # DORNA glues the digit: '6Laps at start'.
+        assert _parse_tyre_age("6Laps at start 6Laps at start") == {
+            "front_tyre_age": 6, "rear_tyre_age": 6}
+
+    def test_tyre_age_mixed_axles(self):
+        assert _parse_tyre_age("New Tyre 3Laps at start") == {
+            "front_tyre_age": 0, "rear_tyre_age": 3}
+
+    def test_tyre_age_missing_rear(self):
+        # 'Laps at start' with no leading digit → unknown age.
+        assert _parse_tyre_age("New Tyre Laps at start") == {
+            "front_tyre_age": 0, "rear_tyre_age": None}
+
+    def test_tyre_age_rejects_lap_row(self):
+        assert _parse_tyre_age("1 1'30.500 22.0 22.5 23.0 23.0 320") is None
+
+    def test_column_tags_laps_across_stints(self):
+        # Two runs: a fresh medium/soft stint, then a pit stop onto used wets.
+        lines = [
+            "Marc MARQUEZ DUCATI ESP",
+            "1st 93",
+            "Ducati Lenovo Team",
+            "Run # 1 Front Tyre Slick-Medium Rear Tyre Slick-Soft",
+            "New Tyre New Tyre",
+            "1 1'41.896 30.0 25.0 26.0 20.0 300.0",
+            "2 1'37.225 29.0 24.0 25.0 19.0 305.0",
+            "Run # 2 Front Tyre Wet-Medium Rear Tyre Wet-Medium",
+            "2Laps at start New Tyre",
+            "3 1'52.182 35.0 28.0 29.0 20.0 250.0",
+        ]
+        riders = _parse_column(lines)
+        assert len(riders) == 1
+        laps = riders[0]["laps"]
+        assert len(laps) == 3
+        # Stint 1 — fresh slicks.
+        assert laps[0]["run_number"] == 1
+        assert laps[0]["front_tyre"] == "Slick-Medium"
+        assert laps[0]["rear_tyre"] == "Slick-Soft"
+        assert laps[0]["front_tyre_age"] == 0
+        assert laps[1]["run_number"] == 1
+        # Stint 2 — switched to wets, front already used 2 laps.
+        assert laps[2]["run_number"] == 2
+        assert laps[2]["front_tyre"] == "Wet-Medium"
+        assert laps[2]["front_tyre_age"] == 2
+        assert laps[2]["rear_tyre_age"] == 0
+
+    def test_column_laps_before_run_header_have_none_tyre(self):
+        lines = [
+            "Francesco BAGNAIA DUCATI ITA",
+            "1st 1",
+            "Ducati Lenovo Team",
+            "1 1'30.500 22.0 22.5 23.0 23.0 320.0",
+        ]
+        laps = _parse_column(lines)[0]["laps"]
+        assert laps[0]["front_tyre"] is None
+        assert laps[0]["run_number"] is None
+
+
 # ── mark_best_lap ───────────────────────────────────────────────────────────
 
 class TestMarkBestLap:
@@ -277,5 +394,7 @@ def test_parse_analysis_pdf_smoke():
     if sample["laps"]:
         lap = sample["laps"][0]
         for k in ("lap_number", "lap_time", "lap_seconds", "is_cancelled",
-                  "is_pit", "I1", "I2", "I3", "I4", "top_speed", "is_best"):
+                  "is_pit", "I1", "I2", "I3", "I4", "top_speed", "is_best",
+                  "run_number", "front_tyre", "rear_tyre",
+                  "front_tyre_age", "rear_tyre_age"):
             assert k in lap

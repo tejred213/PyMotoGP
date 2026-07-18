@@ -6,6 +6,25 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [0.3.0] — 2026-07-18
+
+### Added
+- **Per-lap tyre data** parsed from the Analysis PDF run headers. Each `Lap`
+  (and `to_dataframe()` row) now carries `front_tyre` / `rear_tyre` compounds,
+  `front_tyre_age` / `rear_tyre_age` (laps used at stint start; `0` = new), and
+  `run_number` for stint grouping. Covers dry and wet compounds and flag-to-flag
+  tyre changes, so you can e.g. compare race pace by compound or isolate a
+  tyre-change stint. Tyre data is present in the Analysis PDF from **2018 onward**
+  (2013–2017 PDFs do not carry it). The run-header layout drifts across seasons
+  and older years glue compounds to adjacent labels, so compounds are matched as
+  an explicit token set — coverage is ~98–100% for 2019–2026 across the cached
+  sessions. Absent (`None`) when the data can't be recovered from text: qualifying
+  loaded from the pre-scraped JSON cache (use `prefer="api"`), the occasional PDF
+  that renders tyre rows as graphics rather than text (e.g. 2018 Qatar), and some
+  2023 rows where column splitting drops the compound tokens.
+
+---
+
 ## [0.2.0] — 2026-07-12
 
 ### Added

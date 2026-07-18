@@ -92,12 +92,21 @@ also be triggered manually from the Actions tab.
 ```python
 df = session.laps.to_dataframe()
 # Columns: rider_name, lap_number, lap_time_ms, sector1_ms ... sector4_ms,
-#          top_speed, is_valid, is_cancelled, is_pit, is_best
+#          top_speed, run_number, front_tyre, rear_tyre,
+#          front_tyre_age, rear_tyre_age, is_valid, is_cancelled, is_pit, is_best
 
 session.best_lap                  # fastest valid lap
 session.riders                    # list of rider names
 session.classification            # official position list
 ```
+
+Each lap carries the tyre it was set on, parsed from the run headers in the
+Analysis PDF: `front_tyre` / `rear_tyre` are the compounds (e.g. `Slick-Medium`,
+`Wet-Soft`), and `front_tyre_age` / `rear_tyre_age` are laps used at the start
+of the stint (`0` = new). `run_number` groups laps into stints, so you can, for
+example, compare race pace by compound or isolate a flag-to-flag tyre change.
+Tyre data is absent (`None`) for qualifying sessions loaded from the pre-scraped
+JSON cache; load with `prefer="api"` to get it from the PDF.
 
 ### Plot
 

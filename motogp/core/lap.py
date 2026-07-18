@@ -40,6 +40,16 @@ def _parse_sector(s: Optional[str | float]) -> Optional[timedelta]:
         return None
 
 
+def _int_or_none(v) -> Optional[int]:
+    """Coerce to int; None/blank/unparseable → None."""
+    if v is None or v == "":
+        return None
+    try:
+        return int(v)
+    except (TypeError, ValueError):
+        return None
+
+
 def _parse_lap_time(s: str) -> Optional[timedelta]:
     """Accept 'MM:SS.mmm' or 'M'SS.mmm' → timedelta."""
     if not s:
@@ -71,6 +81,11 @@ class Lap:
     top_speed: float = 0.0
     avg_speed: Optional[float] = None
     tyre_compound: Optional[str] = None
+    run_number: Optional[int] = None
+    front_tyre: Optional[str] = None
+    rear_tyre: Optional[str] = None
+    front_tyre_age: Optional[int] = None   # laps used before this stint; 0 == new
+    rear_tyre_age: Optional[int] = None
     fuel_load: Optional[float] = None
     is_valid: bool = True       # back-compat alias for ``not is_cancelled``
     is_cancelled: bool = False
@@ -105,6 +120,11 @@ class Lap:
             "top_speed": self.top_speed,
             "avg_speed": self.avg_speed,
             "tyre_compound": self.tyre_compound,
+            "run_number": self.run_number,
+            "front_tyre": self.front_tyre,
+            "rear_tyre": self.rear_tyre,
+            "front_tyre_age": self.front_tyre_age,
+            "rear_tyre_age": self.rear_tyre_age,
             "fuel_load": self.fuel_load,
             "is_valid": self.is_valid,
             "is_cancelled": self.is_cancelled,
@@ -150,6 +170,11 @@ class LapCollection:
                 "top_speed": lap.top_speed,
                 "avg_speed": lap.avg_speed,
                 "tyre_compound": lap.tyre_compound,
+                "run_number": lap.run_number,
+                "front_tyre": lap.front_tyre,
+                "rear_tyre": lap.rear_tyre,
+                "front_tyre_age": lap.front_tyre_age,
+                "rear_tyre_age": lap.rear_tyre_age,
                 "fuel_load": lap.fuel_load,
                 "is_valid": lap.is_valid,
                 "is_cancelled": lap.is_cancelled,
@@ -284,6 +309,11 @@ class LapCollection:
                 lap_time=lt,
                 sector_times=sectors,
                 top_speed=top_speed,
+                run_number=_int_or_none(raw.get("run_number")),
+                front_tyre=raw.get("front_tyre"),
+                rear_tyre=raw.get("rear_tyre"),
+                front_tyre_age=_int_or_none(raw.get("front_tyre_age")),
+                rear_tyre_age=_int_or_none(raw.get("rear_tyre_age")),
                 is_cancelled=cancelled,
                 is_pit=bool(raw.get("is_pit")),
                 is_best=bool(raw.get("is_best")),
