@@ -298,6 +298,21 @@ class TestColumnParser:
         assert riders[0]["number"] == "6"
         assert len(riders[0]["laps"]) == 1
 
+    def test_page_title_is_not_a_rider_header(self):
+        # San Marino's title has a header's shape ('MARINO' bike, 'AND' nation).
+        # Mid-block, it must not cut off the laps continuing on the new page.
+        lines = [
+            "Marc MARQUEZ DUCATI SPA",
+            "1st 93",
+            "Ducati Lenovo Team",
+            "1 1'32.000 25.000 21.000 25.000 21.000 300.0",
+            "RED BULL GRAND PRIX OF SAN MARINO AND",
+            "2 1'31.500 24.900 20.900 24.900 20.800 301.0",
+        ]
+        riders = _parse_lines(lines)
+        assert [r["name"] for r in riders] == ["Marc MARQUEZ"]
+        assert len(riders[0]["laps"]) == 2
+
     def test_summary_total_laps_captured(self):
         lines = [
             "Francesco BAGNAIA DUCATI ITA",
