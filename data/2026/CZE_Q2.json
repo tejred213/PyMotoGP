@@ -710,8 +710,8 @@
   },
   {
    "lap_number": 1,
-   "rider_name": "Ai OGURA",
-   "rider_number": 79,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
    "lap_time_ms": 149457.0,
    "lap_time_str": "2:29.457",
    "sector_times": [
@@ -736,8 +736,8 @@
   },
   {
    "lap_number": 2,
-   "rider_name": "Ai OGURA",
-   "rider_number": 79,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
    "lap_time_ms": 111643.0,
    "lap_time_str": "1:51.643",
    "sector_times": [
@@ -762,8 +762,8 @@
   },
   {
    "lap_number": 3,
-   "rider_name": "Ai OGURA",
-   "rider_number": 79,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
    "lap_time_ms": 130501.0,
    "lap_time_str": "2:10.501",
    "sector_times": [
@@ -788,8 +788,8 @@
   },
   {
    "lap_number": 4,
-   "rider_name": "Ai OGURA",
-   "rider_number": 79,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
    "lap_time_ms": 229595.0,
    "lap_time_str": "3:49.595",
    "sector_times": [
@@ -814,8 +814,8 @@
   },
   {
    "lap_number": 5,
-   "rider_name": "Ai OGURA",
-   "rider_number": 79,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
    "lap_time_ms": 111350.0,
    "lap_time_str": "1:51.350",
    "sector_times": [
@@ -836,12 +836,12 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 6,
-   "rider_name": "Ai OGURA",
-   "rider_number": 79,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
    "lap_time_ms": 122229.0,
    "lap_time_str": "2:02.229",
    "sector_times": [
@@ -866,8 +866,8 @@
   },
   {
    "lap_number": 7,
-   "rider_name": "Ai OGURA",
-   "rider_number": 79,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
    "lap_time_ms": 111844.0,
    "lap_time_str": "1:51.844",
    "sector_times": [
@@ -1033,6 +1033,32 @@
     "0:34.618"
    ],
    "top_speed": 323.3,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Slick-Medium",
+   "rear_tyre": "Slick-Soft",
+   "front_tyre_age": 3,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 7,
+   "rider_name": "Francesco BAGNAIA",
+   "rider_number": 63,
+   "lap_time_ms": 133485.0,
+   "lap_time_str": "2:13.485",
+   "sector_times": [
+    "0:47.568",
+    "0:26.485",
+    "0:28.637",
+    "0:30.795"
+   ],
+   "top_speed": 313.9,
    "avg_speed": null,
    "tyre_compound": null,
    "run_number": 2,
@@ -1512,6 +1538,58 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Diogo MOREIRA",
+   "rider_number": 11,
+   "lap_time_ms": 117213.0,
+   "lap_time_str": "1:57.213",
+   "sector_times": [
+    "0:34.271",
+    "0:21.630",
+    "0:28.998",
+    "0:32.314"
+   ],
+   "top_speed": 322.3,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Slick-Medium",
+   "rear_tyre": "Slick-Soft",
+   "front_tyre_age": 3,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Diogo MOREIRA",
+   "rider_number": 11,
+   "lap_time_ms": 126672.0,
+   "lap_time_str": "2:06.672",
+   "sector_times": [
+    "0:34.620",
+    "0:22.266",
+    "0:29.224",
+    "0:40.562"
+   ],
+   "top_speed": 322.3,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Slick-Medium",
+   "rear_tyre": "Slick-Soft",
+   "front_tyre_age": 3,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": true,
    "is_best": false
   },
   {
@@ -2073,6 +2151,84 @@
     "0:29.970"
    ],
    "top_speed": 0.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Slick-Medium",
+   "rear_tyre": "Slick-Soft",
+   "front_tyre_age": 3,
+   "rear_tyre_age": 3,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Jorge MARTIN",
+   "rider_number": 89,
+   "lap_time_ms": 115908.0,
+   "lap_time_str": "1:55.908",
+   "sector_times": [
+    "0:34.224",
+    "0:21.758",
+    "0:30.153",
+    "0:29.773"
+   ],
+   "top_speed": 323.3,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Slick-Medium",
+   "rear_tyre": "Slick-Soft",
+   "front_tyre_age": 3,
+   "rear_tyre_age": 3,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Jorge MARTIN",
+   "rider_number": 89,
+   "lap_time_ms": 116802.0,
+   "lap_time_str": "1:56.802",
+   "sector_times": [
+    "0:36.235",
+    "0:23.210",
+    "0:27.823",
+    "0:29.534"
+   ],
+   "top_speed": 321.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Slick-Medium",
+   "rear_tyre": "Slick-Soft",
+   "front_tyre_age": 3,
+   "rear_tyre_age": 3,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 7,
+   "rider_name": "Jorge MARTIN",
+   "rider_number": 89,
+   "lap_time_ms": 112181.0,
+   "lap_time_str": "1:52.181",
+   "sector_times": [
+    "0:34.304",
+    "0:21.610",
+    "0:26.915",
+    "0:29.352"
+   ],
+   "top_speed": 320.4,
    "avg_speed": null,
    "tyre_compound": null,
    "run_number": 2,

@@ -667,8 +667,8 @@
   },
   {
    "lap_number": 1,
-   "rider_name": "Fermin ALDEGUER",
-   "rider_number": 54,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
    "lap_time_ms": 144826.0,
    "lap_time_str": "2:24.826",
    "sector_times": [
@@ -693,8 +693,8 @@
   },
   {
    "lap_number": 2,
-   "rider_name": "Fermin ALDEGUER",
-   "rider_number": 54,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
    "lap_time_ms": 121324.0,
    "lap_time_str": "2:01.324",
    "sector_times": [
@@ -719,8 +719,8 @@
   },
   {
    "lap_number": 3,
-   "rider_name": "Fermin ALDEGUER",
-   "rider_number": 54,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
    "lap_time_ms": 121210.0,
    "lap_time_str": "2:01.210",
    "sector_times": [
@@ -741,12 +741,12 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 4,
-   "rider_name": "Fermin ALDEGUER",
-   "rider_number": 54,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
    "lap_time_ms": 129138.0,
    "lap_time_str": "2:09.138",
    "sector_times": [
@@ -771,8 +771,8 @@
   },
   {
    "lap_number": 5,
-   "rider_name": "Fermin ALDEGUER",
-   "rider_number": 54,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
    "lap_time_ms": 272379.0,
    "lap_time_str": "4:32.379",
    "sector_times": [
@@ -797,8 +797,8 @@
   },
   {
    "lap_number": 6,
-   "rider_name": "Fermin ALDEGUER",
-   "rider_number": 54,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
    "lap_time_ms": 121480.0,
    "lap_time_str": "2:01.480",
    "sector_times": [
@@ -1161,8 +1161,8 @@
   },
   {
    "lap_number": 1,
-   "rider_name": "Diogo MOREIRA",
-   "rider_number": 11,
+   "rider_name": "Johann ZARCO",
+   "rider_number": 5,
    "lap_time_ms": 143447.0,
    "lap_time_str": "2:23.447",
    "sector_times": [
@@ -1187,8 +1187,8 @@
   },
   {
    "lap_number": 2,
-   "rider_name": "Diogo MOREIRA",
-   "rider_number": 11,
+   "rider_name": "Johann ZARCO",
+   "rider_number": 5,
    "lap_time_ms": 121883.0,
    "lap_time_str": "2:01.883",
    "sector_times": [
@@ -1213,8 +1213,8 @@
   },
   {
    "lap_number": 3,
-   "rider_name": "Diogo MOREIRA",
-   "rider_number": 11,
+   "rider_name": "Johann ZARCO",
+   "rider_number": 5,
    "lap_time_ms": 128131.0,
    "lap_time_str": "2:08.131",
    "sector_times": [
@@ -1239,8 +1239,8 @@
   },
   {
    "lap_number": 4,
-   "rider_name": "Diogo MOREIRA",
-   "rider_number": 11,
+   "rider_name": "Johann ZARCO",
+   "rider_number": 5,
    "lap_time_ms": 294800.0,
    "lap_time_str": "4:54.800",
    "sector_times": [
@@ -1265,8 +1265,8 @@
   },
   {
    "lap_number": 5,
-   "rider_name": "Diogo MOREIRA",
-   "rider_number": 11,
+   "rider_name": "Johann ZARCO",
+   "rider_number": 5,
    "lap_time_ms": 121445.0,
    "lap_time_str": "2:01.445",
    "sector_times": [
@@ -1287,12 +1287,12 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 6,
-   "rider_name": "Diogo MOREIRA",
-   "rider_number": 11,
+   "rider_name": "Johann ZARCO",
+   "rider_number": 5,
    "lap_time_ms": 138383.0,
    "lap_time_str": "2:18.383",
    "sector_times": [
@@ -2118,6 +2118,32 @@
    "fuel_load": null,
    "is_valid": true,
    "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Franco MORBIDELLI",
+   "rider_number": 21,
+   "lap_time_ms": 122038.0,
+   "lap_time_str": "2:02.038",
+   "sector_times": [
+    "0:34.320",
+    "0:29.461",
+    "0:33.837",
+    "0:24.420"
+   ],
+   "top_speed": 340.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Slick-Soft",
+   "rear_tyre": "Slick-Soft",
+   "front_tyre_age": 4,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
    "is_pit": false,
    "is_best": false
   },

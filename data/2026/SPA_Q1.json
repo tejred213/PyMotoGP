@@ -827,7 +827,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": true,
-   "is_best": true
+   "is_best": false
   },
   {
    "lap_number": 4,
@@ -879,7 +879,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 6,
@@ -1009,7 +1009,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": true,
-   "is_best": true
+   "is_best": false
   },
   {
    "lap_number": 5,
@@ -1076,6 +1076,32 @@
     "0:31.825"
    ],
    "top_speed": 282.7,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 4,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 8,
+   "rider_name": "Brad BINDER",
+   "rider_number": 33,
+   "lap_time_ms": 115849.0,
+   "lap_time_str": "1:55.849",
+   "sector_times": [
+    "0:33.110",
+    "0:15.615",
+    "0:34.252",
+    "0:32.872"
+   ],
+   "top_speed": 240.5,
    "avg_speed": null,
    "tyre_compound": null,
    "run_number": 2,
@@ -1191,7 +1217,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": true,
-   "is_best": true
+   "is_best": false
   },
   {
    "lap_number": 5,
@@ -1243,7 +1269,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 7,
@@ -1321,7 +1347,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 3,
@@ -1373,7 +1399,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": true,
-   "is_best": true
+   "is_best": false
   },
   {
    "lap_number": 5,
@@ -1410,10 +1436,10 @@
    "sector_times": [
     "0:33.765",
     "0:21.245",
-    "0:07.343",
+    "2:07.343",
     "0:32.908"
    ],
-   "top_speed": 0.0,
+   "top_speed": 108.9,
    "avg_speed": null,
    "tyre_compound": null,
    "run_number": 2,
@@ -1596,6 +1622,58 @@
     "0:33.126"
    ],
    "top_speed": 280.5,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 1,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 0,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 7,
+   "rider_name": "Augusto FERNANDEZ",
+   "rider_number": 47,
+   "lap_time_ms": 110146.0,
+   "lap_time_str": "1:50.146",
+   "sector_times": [
+    "0:29.618",
+    "0:14.707",
+    "0:33.500",
+    "0:32.320"
+   ],
+   "top_speed": 279.7,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 1,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 0,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 8,
+   "rider_name": "Augusto FERNANDEZ",
+   "rider_number": 47,
+   "lap_time_ms": 117929.0,
+   "lap_time_str": "1:57.929",
+   "sector_times": [
+    "0:30.323",
+    "0:17.271",
+    "0:36.691",
+    "0:33.644"
+   ],
+   "top_speed": 235.8,
    "avg_speed": null,
    "tyre_compound": null,
    "run_number": 1,
@@ -2047,7 +2125,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": true,
-   "is_best": true
+   "is_best": false
   },
   {
    "lap_number": 5,
@@ -2099,7 +2177,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 7,
@@ -2206,6 +2284,110 @@
    "is_best": false
   },
   {
+   "lap_number": 4,
+   "rider_name": "Lorenzo SAVADORI",
+   "rider_number": 32,
+   "lap_time_ms": 114928.0,
+   "lap_time_str": "1:54.928",
+   "sector_times": [
+    "0:33.861",
+    "0:14.958",
+    "0:33.797",
+    "0:32.311"
+   ],
+   "top_speed": 281.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 3,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Lorenzo SAVADORI",
+   "rider_number": 32,
+   "lap_time_ms": 115045.0,
+   "lap_time_str": "1:55.045",
+   "sector_times": [
+    "0:29.971",
+    "0:15.070",
+    "0:36.394",
+    "0:33.610"
+   ],
+   "top_speed": 279.7,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 3,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Lorenzo SAVADORI",
+   "rider_number": 32,
+   "lap_time_ms": 112697.0,
+   "lap_time_str": "1:52.697",
+   "sector_times": [
+    "0:31.279",
+    "0:14.731",
+    "0:34.261",
+    "0:32.426"
+   ],
+   "top_speed": 280.5,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 3,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 7,
+   "rider_name": "Lorenzo SAVADORI",
+   "rider_number": 32,
+   "lap_time_ms": 111314.0,
+   "lap_time_str": "1:51.314",
+   "sector_times": [
+    "0:29.841",
+    "0:14.879",
+    "0:33.916",
+    "0:32.677"
+   ],
+   "top_speed": 279.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 3,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
    "lap_number": 1,
    "rider_name": "Alex RINS",
    "rider_number": 42,
@@ -2307,7 +2489,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": true,
-   "is_best": true
+   "is_best": false
   },
   {
    "lap_number": 5,
@@ -2359,7 +2541,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 7,
@@ -2449,7 +2631,7 @@
     "0:29.475",
     "0:14.698",
     "0:33.625",
-    "0:48.568"
+    "4:48.568"
    ],
    "top_speed": 283.4,
    "avg_speed": null,

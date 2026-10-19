@@ -684,8 +684,8 @@
   },
   {
    "lap_number": 1,
-   "rider_name": "Fabio DI GIANNANTONIO",
-   "rider_number": 49,
+   "rider_name": "Marco BEZZECCHI",
+   "rider_number": 72,
    "lap_time_ms": 130187.99999999999,
    "lap_time_str": "2:10.187",
    "sector_times": [
@@ -710,8 +710,8 @@
   },
   {
    "lap_number": 2,
-   "rider_name": "Fabio DI GIANNANTONIO",
-   "rider_number": 49,
+   "rider_name": "Marco BEZZECCHI",
+   "rider_number": 72,
    "lap_time_ms": 121506.0,
    "lap_time_str": "2:01.506",
    "sector_times": [
@@ -736,8 +736,8 @@
   },
   {
    "lap_number": 3,
-   "rider_name": "Fabio DI GIANNANTONIO",
-   "rider_number": 49,
+   "rider_name": "Marco BEZZECCHI",
+   "rider_number": 72,
    "lap_time_ms": 120938.0,
    "lap_time_str": "2:00.938",
    "sector_times": [
@@ -762,8 +762,8 @@
   },
   {
    "lap_number": 4,
-   "rider_name": "Fabio DI GIANNANTONIO",
-   "rider_number": 49,
+   "rider_name": "Marco BEZZECCHI",
+   "rider_number": 72,
    "lap_time_ms": 134613.0,
    "lap_time_str": "2:14.613",
    "sector_times": [
@@ -788,8 +788,8 @@
   },
   {
    "lap_number": 5,
-   "rider_name": "Fabio DI GIANNANTONIO",
-   "rider_number": 49,
+   "rider_name": "Marco BEZZECCHI",
+   "rider_number": 72,
    "lap_time_ms": 206252.0,
    "lap_time_str": "3:26.252",
    "sector_times": [
@@ -814,8 +814,8 @@
   },
   {
    "lap_number": 6,
-   "rider_name": "Fabio DI GIANNANTONIO",
-   "rider_number": 49,
+   "rider_name": "Marco BEZZECCHI",
+   "rider_number": 72,
    "lap_time_ms": 120329.0,
    "lap_time_str": "2:00.329",
    "sector_times": [
@@ -836,12 +836,12 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 7,
-   "rider_name": "Fabio DI GIANNANTONIO",
-   "rider_number": 49,
+   "rider_name": "Marco BEZZECCHI",
+   "rider_number": 72,
    "lap_time_ms": 120844.0,
    "lap_time_str": "2:00.844",
    "sector_times": [
@@ -1230,8 +1230,8 @@
   },
   {
    "lap_number": 1,
-   "rider_name": "Francesco BAGNAIA",
-   "rider_number": 63,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
    "lap_time_ms": 132880.0,
    "lap_time_str": "2:12.880",
    "sector_times": [
@@ -1256,8 +1256,8 @@
   },
   {
    "lap_number": 2,
-   "rider_name": "Francesco BAGNAIA",
-   "rider_number": 63,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
    "lap_time_ms": 121615.0,
    "lap_time_str": "2:01.615",
    "sector_times": [
@@ -1282,8 +1282,8 @@
   },
   {
    "lap_number": 3,
-   "rider_name": "Francesco BAGNAIA",
-   "rider_number": 63,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
    "lap_time_ms": 120591.0,
    "lap_time_str": "2:00.591",
    "sector_times": [
@@ -1304,12 +1304,12 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 4,
-   "rider_name": "Francesco BAGNAIA",
-   "rider_number": 63,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
    "lap_time_ms": 132844.0,
    "lap_time_str": "2:12.844",
    "sector_times": [
@@ -1334,8 +1334,8 @@
   },
   {
    "lap_number": 5,
-   "rider_name": "Francesco BAGNAIA",
-   "rider_number": 63,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
    "lap_time_ms": 205989.0,
    "lap_time_str": "3:25.989",
    "sector_times": [
@@ -1360,8 +1360,8 @@
   },
   {
    "lap_number": 6,
-   "rider_name": "Francesco BAGNAIA",
-   "rider_number": 63,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
    "lap_time_ms": 123669.0,
    "lap_time_str": "2:03.669",
    "sector_times": [
@@ -1386,8 +1386,8 @@
   },
   {
    "lap_number": 7,
-   "rider_name": "Francesco BAGNAIA",
-   "rider_number": 63,
+   "rider_name": "Joan MIR",
+   "rider_number": 36,
    "lap_time_ms": 128824.99999999999,
    "lap_time_str": "2:08.824",
    "sector_times": [
@@ -1460,7 +1460,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": true
+   "is_best": false
   },
   {
    "lap_number": 3,
@@ -1537,6 +1537,58 @@
    "fuel_load": null,
    "is_valid": true,
    "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Marc MARQUEZ",
+   "rider_number": 93,
+   "lap_time_ms": 120637.0,
+   "lap_time_str": "2:00.637",
+   "sector_times": [
+    "0:33.984",
+    "0:29.027",
+    "0:33.463",
+    "0:24.163"
+   ],
+   "top_speed": 342.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Slick-Medium",
+   "rear_tyre": "Slick-Soft",
+   "front_tyre_age": 4,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 7,
+   "rider_name": "Marc MARQUEZ",
+   "rider_number": 93,
+   "lap_time_ms": 142118.0,
+   "lap_time_str": "2:22.118",
+   "sector_times": [
+    "0:44.016",
+    "0:39.472",
+    "0:34.031",
+    "0:24.599"
+   ],
+   "top_speed": 342.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Slick-Medium",
+   "rear_tyre": "Slick-Soft",
+   "front_tyre_age": 4,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
    "is_pit": false,
    "is_best": false
   },
@@ -2163,6 +2215,58 @@
    "is_cancelled": false,
    "is_pit": false,
    "is_best": true
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Fermin ALDEGUER",
+   "rider_number": 54,
+   "lap_time_ms": 121124.0,
+   "lap_time_str": "2:01.124",
+   "sector_times": [
+    "0:33.969",
+    "0:29.249",
+    "0:33.712",
+    "0:24.194"
+   ],
+   "top_speed": 338.0,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 1,
+   "front_tyre": "Slick-Medium",
+   "rear_tyre": "Slick-Soft",
+   "front_tyre_age": 0,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Fermin ALDEGUER",
+   "rider_number": 54,
+   "lap_time_ms": 157995.0,
+   "lap_time_str": "2:37.995",
+   "sector_times": [
+    "0:47.973",
+    "0:35.537",
+    "0:40.789",
+    "0:33.696"
+   ],
+   "top_speed": 282.7,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 1,
+   "front_tyre": "Slick-Medium",
+   "rear_tyre": "Slick-Soft",
+   "front_tyre_age": 0,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": true,
+   "is_best": false
   },
   {
    "lap_number": 1,

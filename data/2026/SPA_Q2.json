@@ -642,7 +642,7 @@
     "0:46.244",
     "0:30.509"
    ],
-   "top_speed": 0.0,
+   "top_speed": 163.6,
    "avg_speed": null,
    "tyre_compound": null,
    "run_number": 1,
@@ -810,7 +810,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": true,
-   "is_best": true
+   "is_best": false
   },
   {
    "lap_number": 4,
@@ -888,7 +888,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 7,
@@ -992,7 +992,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": true
+   "is_best": false
   },
   {
    "lap_number": 3,
@@ -1070,6 +1070,84 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": true,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
+   "lap_time_ms": 117217.0,
+   "lap_time_str": "1:57.217",
+   "sector_times": [
+    "0:33.691",
+    "0:14.960",
+    "0:36.420",
+    "0:32.146"
+   ],
+   "top_speed": 274.1,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 5,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 7,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
+   "lap_time_ms": 109097.0,
+   "lap_time_str": "1:49.097",
+   "sector_times": [
+    "0:29.499",
+    "0:14.411",
+    "0:33.382",
+    "0:31.805"
+   ],
+   "top_speed": 285.7,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 5,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 8,
+   "rider_name": "Fabio DI GIANNANTONIO",
+   "rider_number": 49,
+   "lap_time_ms": 109585.0,
+   "lap_time_str": "1:49.585",
+   "sector_times": [
+    "0:29.518",
+    "0:14.439",
+    "0:33.545",
+    "0:32.083"
+   ],
+   "top_speed": 284.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 5,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
    "is_best": false
   },
   {
@@ -1174,7 +1252,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": true,
-   "is_best": true
+   "is_best": false
   },
   {
    "lap_number": 5,
@@ -1252,7 +1330,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 8,
@@ -1484,6 +1562,162 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Pedro ACOSTA",
+   "rider_number": 37,
+   "lap_time_ms": 109434.0,
+   "lap_time_str": "1:49.434",
+   "sector_times": [
+    "0:29.412",
+    "0:14.531",
+    "0:33.361",
+    "0:32.130"
+   ],
+   "top_speed": 287.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 1,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 0,
+   "rear_tyre_age": 4,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Pedro ACOSTA",
+   "rider_number": 37,
+   "lap_time_ms": 110803.0,
+   "lap_time_str": "1:50.803",
+   "sector_times": [
+    "0:29.331",
+    "0:14.541",
+    "0:39.466",
+    "0:27.465"
+   ],
+   "top_speed": 287.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 1,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 0,
+   "rear_tyre_age": 4,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": true,
+   "is_best": false
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Pedro ACOSTA",
+   "rider_number": 37,
+   "lap_time_ms": 115585.0,
+   "lap_time_str": "1:55.585",
+   "sector_times": [
+    "0:33.678",
+    "0:15.157",
+    "0:33.850",
+    "0:32.900"
+   ],
+   "top_speed": 257.7,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 3,
+   "rear_tyre_age": 3,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Pedro ACOSTA",
+   "rider_number": 37,
+   "lap_time_ms": 115102.0,
+   "lap_time_str": "1:55.102",
+   "sector_times": [
+    "0:32.814",
+    "0:15.448",
+    "0:33.908",
+    "0:32.932"
+   ],
+   "top_speed": 249.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 3,
+   "rear_tyre_age": 3,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Pedro ACOSTA",
+   "rider_number": 37,
+   "lap_time_ms": 114024.0,
+   "lap_time_str": "1:54.024",
+   "sector_times": [
+    "0:29.542",
+    "0:14.544",
+    "0:37.116",
+    "0:32.822"
+   ],
+   "top_speed": 284.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 3,
+   "rear_tyre_age": 3,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 7,
+   "rider_name": "Pedro ACOSTA",
+   "rider_number": 37,
+   "lap_time_ms": 109230.0,
+   "lap_time_str": "1:49.230",
+   "sector_times": [
+    "0:29.241",
+    "0:14.535",
+    "0:33.225",
+    "0:32.229"
+   ],
+   "top_speed": 286.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 3,
+   "rear_tyre_age": 3,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
    "is_best": true
   },
   {
@@ -1562,7 +1796,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": true,
-   "is_best": true
+   "is_best": false
   },
   {
    "lap_number": 4,
@@ -1614,7 +1848,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 1,
@@ -1666,7 +1900,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 3,
@@ -1692,7 +1926,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": true,
-   "is_best": true
+   "is_best": false
   },
   {
    "lap_number": 4,
@@ -1822,7 +2056,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 3,
@@ -1874,7 +2108,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": true,
-   "is_best": true
+   "is_best": false
   },
   {
    "lap_number": 5,
@@ -1974,6 +2208,214 @@
    "rear_tyre": "Wet-Medium",
    "front_tyre_age": 4,
    "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 1,
+   "rider_name": "Francesco BAGNAIA",
+   "rider_number": 63,
+   "lap_time_ms": 121044.0,
+   "lap_time_str": "2:01.044",
+   "sector_times": [
+    "0:34.075",
+    "0:15.282",
+    "0:35.055",
+    "0:33.573"
+   ],
+   "top_speed": 267.3,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 1,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 0,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 2,
+   "rider_name": "Francesco BAGNAIA",
+   "rider_number": 63,
+   "lap_time_ms": 115711.0,
+   "lap_time_str": "1:55.711",
+   "sector_times": [
+    "0:33.988",
+    "0:14.853",
+    "0:34.154",
+    "0:32.716"
+   ],
+   "top_speed": 284.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 1,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 0,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 3,
+   "rider_name": "Francesco BAGNAIA",
+   "rider_number": 63,
+   "lap_time_ms": 111027.0,
+   "lap_time_str": "1:51.027",
+   "sector_times": [
+    "0:29.966",
+    "0:14.780",
+    "0:34.007",
+    "0:32.274"
+   ],
+   "top_speed": 286.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 1,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 0,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": true
+  },
+  {
+   "lap_number": 4,
+   "rider_name": "Francesco BAGNAIA",
+   "rider_number": 63,
+   "lap_time_ms": 108131.0,
+   "lap_time_str": "1:48.131",
+   "sector_times": [
+    "0:29.753",
+    "0:14.748",
+    "0:34.105",
+    "0:29.525"
+   ],
+   "top_speed": 284.9,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 1,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 0,
+   "rear_tyre_age": 0,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": true,
+   "is_best": false
+  },
+  {
+   "lap_number": 5,
+   "rider_name": "Francesco BAGNAIA",
+   "rider_number": 63,
+   "lap_time_ms": 115688.0,
+   "lap_time_str": "1:55.688",
+   "sector_times": [
+    "0:33.760",
+    "0:15.075",
+    "0:34.015",
+    "0:32.838"
+   ],
+   "top_speed": 274.1,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 4,
+   "rear_tyre_age": 4,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 6,
+   "rider_name": "Francesco BAGNAIA",
+   "rider_number": 63,
+   "lap_time_ms": 117742.0,
+   "lap_time_str": "1:57.742",
+   "sector_times": [
+    "0:30.254",
+    "0:16.035",
+    "0:38.425",
+    "0:33.028"
+   ],
+   "top_speed": 222.2,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 4,
+   "rear_tyre_age": 4,
+   "fuel_load": null,
+   "is_valid": false,
+   "is_cancelled": true,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 7,
+   "rider_name": "Francesco BAGNAIA",
+   "rider_number": 63,
+   "lap_time_ms": 111221.0,
+   "lap_time_str": "1:51.221",
+   "sector_times": [
+    "0:29.692",
+    "0:14.887",
+    "0:33.950",
+    "0:32.692"
+   ],
+   "top_speed": 285.7,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 4,
+   "rear_tyre_age": 4,
+   "fuel_load": null,
+   "is_valid": true,
+   "is_cancelled": false,
+   "is_pit": false,
+   "is_best": false
+  },
+  {
+   "lap_number": 8,
+   "rider_name": "Francesco BAGNAIA",
+   "rider_number": 63,
+   "lap_time_ms": 111124.0,
+   "lap_time_str": "1:51.124",
+   "sector_times": [
+    "0:29.698",
+    "0:14.859",
+    "0:34.048",
+    "0:32.519"
+   ],
+   "top_speed": 283.4,
+   "avg_speed": null,
+   "tyre_compound": null,
+   "run_number": 2,
+   "front_tyre": "Wet-Medium",
+   "rear_tyre": "Wet-Medium",
+   "front_tyre_age": 4,
+   "rear_tyre_age": 4,
    "fuel_load": null,
    "is_valid": true,
    "is_cancelled": false,
@@ -2108,7 +2550,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": true,
-   "is_best": true
+   "is_best": false
   },
   {
    "lap_number": 6,
@@ -2160,7 +2602,7 @@
    "is_valid": true,
    "is_cancelled": false,
    "is_pit": false,
-   "is_best": false
+   "is_best": true
   },
   {
    "lap_number": 1,
