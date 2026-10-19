@@ -16,7 +16,6 @@ from __future__ import annotations
 import logging
 import re
 import time
-from collections import defaultdict
 from pathlib import Path
 from typing import Optional
 
@@ -28,13 +27,13 @@ logger = logging.getLogger(__name__)
 # ── time helpers ─────────────────────────────────────────────────────────────
 
 def parse_laptime(s: str) -> Optional[float]:
-    """Parse M'SS.mmm → float seconds. Returns None on failure."""
+    """Parse M'SS.mmm (or SS.mmm, under a minute) → float seconds. None on failure."""
     if not s:
         return None
     s = s.strip().replace('"', "'")
-    m = re.match(r"^(\d+)'(\d{2})\.(\d{3})$", s)
+    m = re.match(r"^(?:(\d+)')?(\d{1,2})\.(\d{3})$", s)
     if m:
-        return int(m.group(1)) * 60 + int(m.group(2)) + int(m.group(3)) / 1000
+        return int(m.group(1) or 0) * 60 + int(m.group(2)) + int(m.group(3)) / 1000
     return None
 
 
@@ -98,8 +97,17 @@ _NOISE = re.compile(
     re.IGNORECASE,
 )
 _HDR_B = re.compile(r"^(\d+)(?:st|nd|rd|th)\s+(\d{1,3})$")
-_LAP_START = re.compile(r"^(\d+)\s+(\d{1,2}'\d{2}\.\d{3})")
-_RUNS = re.compile(r"Runs=\d+")
+# Lap number + lap time. A pit-lane crossing can come in under a minute and is
+# printed without minutes: '3 50.484 P 24.774 354.0'.
+_LAP_START = re.compile(r"^(\d+)\s+((?:\d{1,2}')?\d{1,2}\.\d{3})(?=[\s*]|$)")
+# '*' (lap cancelled) and 'P' (crossed the line in the pit lane) follow the time.
+_LAP_FLAGS = re.compile(r"(?:\s*(?:\*|P\b))*")
+_TIME_TOKEN = re.compile(r"(?:\d{1,2}')?\d+\.\d+")
+_SPEED_TOKEN = re.compile(r"\d+\.\d")   # speeds have one decimal, times three
+# Rider summary line: 'Runs=2 Total laps=9 Full laps=5 Valid laps=5'.
+_RUNS = re.compile(r"Runs=\d+(?:\s+Total\s+laps=(\d+))?")
+# A run of 3+ single characters — a name the PDF draws letter by letter.
+_SPACED_LETTERS = re.compile(r"(?:\b\w\b ){2,}\b\w\b")
 
 # Run header carrying per-axle compounds. The column-split layout drifts across
 # seasons (tyre data exists in the Analysis PDF from 2018 on), and older years
@@ -114,7 +122,7 @@ _RUNS = re.compile(r"Runs=\d+")
 _COMPOUND = r"(?:Slick|Wet|Rain)-(?:Soft|Medium|Hard)|Intermediate"
 _RUN_HEADER = re.compile(
     r"^(?:Run\s*#\s*)?(\d+)?\s*Front\s+Tyre\s*(" + _COMPOUND + r")?"
-    r"\s*Rear\s+Tyre\s*(" + _COMPOUND + r")?",
+    r".*?Rear\s+Tyre\s*(" + _COMPOUND + r")?",
     re.IGNORECASE,
 )
 _STRAY_RUN = re.compile(r"^Run\s*#\s*\d*$", re.IGNORECASE)
@@ -185,25 +193,78 @@ def _parse_tyre_age(line: str) -> Optional[dict]:
     }
 
 
-def _split_columns(page, mid_frac: float = 0.50) -> tuple[list[str], list[str]]:
-    """Reconstruct left/right column text lines from pdfplumber word bboxes."""
-    mid_x = page.width * mid_frac
-    words = page.extract_words(x_tolerance=3, y_tolerance=3)
-    if not words:
-        return [], []
-    rows: dict[int, list] = defaultdict(list)
-    for w in words:
-        rows[round(w["top"] / 3) * 3].append(w)
-    left_lines, right_lines = [], []
-    for yt in sorted(rows):
-        row = sorted(rows[yt], key=lambda w: w["x0"])
-        left = " ".join(w["text"] for w in row if w["x0"] < mid_x)
-        right = " ".join(w["text"] for w in row if w["x0"] >= mid_x)
-        if left.strip():
-            left_lines.append(left)
-        if right.strip():
-            right_lines.append(right)
-    return left_lines, right_lines
+# Words on one visual line differ in ``top`` by up to ~1pt (mixed font sizes,
+# e.g. a 10pt rider name beside an 8pt 'DUCATI ITA'), while the nearest
+# distinct content lines sit >= 2.2pt apart (the 14pt '1st 93' line under a
+# rider header). Cluster within this tolerance to keep a line together.
+_LINE_TOLERANCE = 1.6
+
+
+def _group_lines(words: list[dict]) -> list[str]:
+    """Cluster words into text lines by vertical proximity, left to right.
+
+    Snapping ``top`` to a fixed grid splits a line whenever its words straddle
+    a grid boundary — a 0.3pt baseline offset was enough to break a rider
+    header in two, hide the rider, and hand their laps to the rider above.
+    """
+    lines: list[list[dict]] = []
+    for w in sorted(words, key=lambda w: w["top"]):
+        if lines and w["top"] - lines[-1][0]["top"] <= _LINE_TOLERANCE:
+            lines[-1].append(w)
+        else:
+            lines.append([w])
+    texts = (" ".join(w["text"] for w in sorted(line, key=lambda w: w["x0"])) for line in lines)
+    return [t for t in texts if t.strip()]
+
+
+# Rider position label heading each rider block ('1st', '22nd'), set in 14pt.
+_POSITION_LABEL = re.compile(r"^\d{1,2}(?:st|nd|rd|th)$")
+
+
+def _right_column_start(words_by_page: list[tuple[float, list[dict]]]) -> Optional[float]:
+    """x where the right column begins, read from its rider position labels.
+
+    Those labels are the column's leftmost element (right-aligned, so '22nd'
+    starts left of '4th'). The page midpoint is not a safe split: 2023-24
+    left-column nation codes start just past it, and in 2026 the right column
+    starts within 1pt of where 2023-24 left-column team names end.
+    """
+    xs = [
+        w["x0"]
+        for width, words in words_by_page
+        for w in words
+        if w["x0"] > width * 0.4
+        and w["bottom"] - w["top"] >= 12   # not the 8pt '1st intermediate' legend
+        and _POSITION_LABEL.match(w["text"])
+    ]
+    return min(xs) - 1.0 if xs else None
+
+
+def _split_columns(words: list[dict], split_x: float) -> tuple[list[str], list[str]]:
+    """Reconstruct left/right column text lines from pdfplumber word boxes."""
+    left = [w for w in words if w["x0"] < split_x]
+    right = [w for w in words if w["x0"] >= split_x]
+    return _group_lines(left), _group_lines(right)
+
+
+def _reading_order_lines(pages) -> list[str]:
+    """All text lines of the document in reading order: each page's left
+    column, then its right column, then the next page.
+
+    Rider blocks flow across column and page breaks, so the state machine has
+    to see one continuous stream — parsed column by column, the laps at the
+    top of a column belonged to no header and were dropped.
+    """
+    words_by_page = [
+        (page.width, page.extract_words(x_tolerance=3, y_tolerance=3)) for page in pages
+    ]
+    right_x = _right_column_start(words_by_page)
+    lines: list[str] = []
+    for width, words in words_by_page:
+        left, right = _split_columns(words, right_x if right_x is not None else width / 2)
+        lines.extend(left)
+        lines.extend(right)
+    return lines
 
 
 def _parse_header_a(line: str) -> Optional[dict]:
@@ -228,6 +289,26 @@ def _parse_header_a(line: str) -> Optional[dict]:
     return {"name": name, "motorcycle": moto, "nation": nat}
 
 
+def _join_spaced_letters(line: str) -> str:
+    """'S t e f a n B R A D L HONDA GER' → 'Stefan BRADL HONDA GER'."""
+    def join(m: re.Match) -> str:
+        word = m.group(0).replace(" ", "")
+        return re.sub(r"(?<=[a-zß-ÿ])(?=[A-ZÀ-Þ])", " ", word)
+    return _SPACED_LETTERS.sub(join, line)
+
+
+def _rider_header(line: str) -> Optional[dict]:
+    """Rider header Line A, also when the PDF draws the name letter by letter."""
+    line = line.strip()
+    return _parse_header_a(line) or _parse_header_a(_join_spaced_letters(line))
+
+
+def _seconds(token: str) -> float:
+    """'24.774' or "1'55.019" → seconds."""
+    minutes, _, secs = token.rpartition("'")
+    return int(minutes or 0) * 60 + float(secs)
+
+
 def _parse_lap(line: str) -> Optional[dict]:
     """Lap row: 'LapNum  M'SS.mmm  [*]  [P]  T1 T2 T3 T4  Speed'."""
     line = line.strip()
@@ -239,24 +320,17 @@ def _parse_lap(line: str) -> Optional[dict]:
     if not lap_secs:
         return None
 
-    whole_cancelled = bool(re.search(r"\d'\d{2}\.\d{3}\s+\*\s+", line))
-    is_pit = bool(re.search(r"\d'\d{2}\.\d{3}\s+P\b", line))
-
     rest = line[m.end():]
-    rest = re.sub(r"\bP\b", " ", rest)
-    rest = re.sub(r"(?<!\d)\*(?!\d)", " ", rest)
-    nums: list[float] = []
-    for tok in re.findall(r"\*?([\d]+\.[\d]+)\*?", rest):
-        try:
-            nums.append(float(tok))
-        except ValueError:
-            pass
+    flags_match = _LAP_FLAGS.match(rest)
+    flags = flags_match.group(0) if flags_match else ""
+    whole_cancelled = "*" in flags
+    is_pit = "P" in flags
 
+    tokens = _TIME_TOKEN.findall(rest[len(flags):])
     speed: Optional[float] = None
-    sectors = nums
-    if nums and nums[-1] > 200:
-        speed = nums[-1]
-        sectors = nums[:-1]
+    if tokens and _SPEED_TOKEN.fullmatch(tokens[-1]):
+        speed = float(tokens.pop())
+    sectors = [_seconds(t) for t in tokens]
 
     t1 = sectors[0] if len(sectors) > 0 else None
     t2 = sectors[1] if len(sectors) > 1 else None
@@ -277,20 +351,25 @@ def _parse_lap(line: str) -> Optional[dict]:
     }
 
 
-def _parse_column(lines: list[str]) -> list[dict]:
-    """State-machine parser for one column's line list."""
+def _parse_lines(lines: list[str]) -> list[dict]:
+    """State-machine parser over the document's lines in reading order."""
     riders: list[dict] = []
     i = 0
     n = len(lines)
 
     while i < n:
-        while i < n and _is_noise(lines[i]):
+        # Headers first: a letter-spaced name ('S t e f a n ...') also reads
+        # as the track-map 's' label in _NOISE.
+        while i < n and _is_noise(lines[i]) and not _rider_header(lines[i]):
             i += 1
         if i >= n:
             break
 
-        hdr = _parse_header_a(lines[i].strip())
+        hdr = _rider_header(lines[i])
         if not hdr:
+            if _HDR_B.match(lines[i].strip()):
+                logger.warning("unreadable rider header before %r; skipping that rider's laps",
+                               lines[i].strip())
             i += 1
             continue
 
@@ -312,11 +391,8 @@ def _parse_column(lines: list[str]) -> list[dict]:
         team = ""
         if i < n:
             cand = lines[i].strip()
-            cand_clean = re.sub(r"(\b[A-Z]{3})\s+\d+\s+\d+'.*$", r"\1", cand).strip()
-            if (not _RUNS.search(cand)
-                    and not _HDR_B.match(cand)
-                    and not _parse_header_a(cand_clean)
-                    and not _parse_header_a(cand)):
+            if not (_RUNS.search(cand) or _HDR_B.match(cand)
+                    or _rider_header(cand) or _parse_lap(cand)):
                 team = cand
                 i += 1
 
@@ -324,12 +400,16 @@ def _parse_column(lines: list[str]) -> list[dict]:
         # the lap loop below owns those (they carry the stint's tyre state).
         while i < n and _is_noise(lines[i]) and not _parse_run_header(lines[i]):
             i += 1
-        if i < n and _RUNS.search(lines[i]):
+        total_laps = None
+        summary = _RUNS.search(lines[i]) if i < n else None
+        if summary:
+            total_laps = int(summary.group(1)) if summary.group(1) else None
             i += 1
 
         rider: dict = {
             "name": name, "motorcycle": motorcycle, "nation": nation,
             "number": number, "pos": pos, "team": team, "laps": [],
+            "total_laps": total_laps,   # the PDF's own count, for cross-checking
         }
 
         current_tyre = dict(_EMPTY_TYRE)
@@ -361,13 +441,15 @@ def _parse_column(lines: list[str]) -> list[dict]:
                     break
                 continue
 
+            # The next rider's header ends this block. Its 'Nth NUM' position
+            # line is a boundary too, so laps under a header we can't read are
+            # skipped rather than credited to this rider.
+            if _rider_header(ll) or _HDR_B.match(ll):
+                break
+
             if _is_noise(ll):
                 i += 1
                 continue
-
-            ll_clean = re.sub(r"(\b[A-Z]{3})\s+\d+\s+\d+'.*$", r"\1", ll).strip()
-            if _parse_header_a(ll_clean) or _parse_header_a(ll):
-                break
             lap = _parse_lap(ll)
             if lap:
                 lap.update(current_tyre)
@@ -380,15 +462,39 @@ def _parse_column(lines: list[str]) -> list[dict]:
 
 
 def _mark_best_lap(laps: list[dict]) -> None:
-    """Flag the single fastest non-cancelled lap as is_best=True."""
-    valid = [l for l in laps if not l["is_cancelled"] and l.get("lap_seconds")]
-    best_secs = min((l["lap_seconds"] for l in valid), default=None)
+    """Flag the single fastest valid lap as is_best=True.
+
+    Cancelled and pit laps don't count: at some tracks a lap through the pit
+    lane is shorter than a full lap and would beat the real best.
+    """
+    valid = [
+        l for l in laps
+        if not l["is_cancelled"] and not l.get("is_pit") and l.get("lap_seconds")
+    ]
+    best = min(valid, key=lambda l: l["lap_seconds"], default=None)
     for lap in laps:
-        lap["is_best"] = (
-            not lap["is_cancelled"]
-            and best_secs is not None
-            and lap.get("lap_seconds") == best_secs
-        )
+        lap["is_best"] = lap is best
+
+
+def _riders_by_number(riders: list[dict]) -> dict[str, dict]:
+    """Key parsed riders by race number and flag each rider's best lap."""
+    result: dict[str, dict] = {}
+    for rider in riders:
+        num = rider.get("number")
+        if not num:
+            logger.warning("dropping rider %r: no race number parsed", rider.get("name"))
+            continue
+        if num in result:
+            logger.warning("duplicate race number %s (%r, %r); keeping the first",
+                           num, result[num]["name"], rider["name"])
+            continue
+        total = rider.get("total_laps")
+        if total is not None and total != len(rider["laps"]):
+            logger.warning("rider %s %s: parsed %d laps but the PDF lists %d",
+                           num, rider["name"], len(rider["laps"]), total)
+        _mark_best_lap(rider["laps"])
+        result[num] = rider
+    return result
 
 
 def parse_analysis_pdf(pdf_path: Path) -> dict[str, dict]:
@@ -396,24 +502,18 @@ def parse_analysis_pdf(pdf_path: Path) -> dict[str, dict]:
     Parse an Analysis PDF (qualifying, race, or practice).
 
     Returns dict keyed by race-number string. Each value contains rider
-    identity + a ``laps`` list with full sector breakdown.
+    identity + a ``laps`` list with full sector breakdown. An unreadable PDF
+    yields an empty dict rather than a partial parse.
     """
     import pdfplumber
 
-    result: dict[str, dict] = {}
     try:
         with pdfplumber.open(pdf_path) as pdf:
-            for page in pdf.pages:
-                left, right = _split_columns(page)
-                for col_lines in (left, right):
-                    for rider in _parse_column(col_lines):
-                        num = rider.get("number")
-                        if num and num not in result:
-                            _mark_best_lap(rider["laps"])
-                            result[num] = rider
+            lines = _reading_order_lines(pdf.pages)
     except Exception as exc:
         logger.error("error reading analysis PDF %s: %s", pdf_path, exc)
-    return result
+        return {}
+    return _riders_by_number(_parse_lines(lines))
 
 
 # ── Classification PDF parser ────────────────────────────────────────────────

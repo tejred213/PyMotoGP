@@ -6,6 +6,31 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [Unreleased]
+
+### Fixed
+- **Analysis PDF parser lost and misattributed laps.** On the 2026 sessions it
+  recovered ~77% of official laps; it now matches PulseLive's classification
+  for every rider (100% of laps, 1,559/1,560 best laps). Causes fixed:
+  - Text lines were rebuilt on a fixed 3pt grid, so a rider header whose words
+    sat a fraction of a point apart split in two. The rider vanished and their
+    laps were appended to the rider above. Lines are now clustered by proximity.
+  - Each column was parsed on its own, so laps continuing at the top of the next
+    column or page were dropped. The document is now parsed as one stream.
+  - The page midpoint cut 2023–24 nation codes off their rider header. The
+    column split is now read from each document's layout.
+  - Sub-minute pit-lane laps (e.g. Mugello `50.484`) were skipped; run headers
+    reading `missing data` were missed; out-lap top speeds under 200 km/h were
+    dropped; sectors over a minute were read without their minutes; and a `*`
+    on a minute-format sector cancelled the whole lap.
+  - `is_best` could flag a pit-lane lap (shorter than a full lap at some tracks)
+    or several tied laps; it now flags one valid, non-pit lap.
+- Laps under a rider header the parser can't read are no longer credited to the
+  previous rider, and a rider whose parsed lap count disagrees with the PDF's own
+  `Total laps=` line is logged as a warning.
+
+---
+
 ## [0.3.0] — 2026-07-18
 
 ### Added

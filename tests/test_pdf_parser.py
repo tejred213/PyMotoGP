@@ -1,12 +1,14 @@
 """Tests for motogp.api.pdf_parser.
 
-Strategy: most parser logic is pure functions over strings, so we test those
-with synthetic line fixtures and skip the binary-PDF dependency.
+Strategy: most parser logic is pure functions over strings or word boxes, so
+we test those with synthetic fixtures (word geometry copied from real PDFs)
+and skip the binary-PDF dependency.
 
-A single integration test verifies ``parse_analysis_pdf()`` against a real
-DORNA PDF *if one exists in the cache directory*. It is skipped on systems
-without a cached PDF — so CI passes without any binary fixture committed,
-and local runs validate end-to-end parsing when the user has data.
+Two integration tests run ``parse_analysis_pdf()`` against real DORNA PDFs
+*if any exist in the cache directory*: a schema smoke test, and a check that
+every rider block is found with the lap count the PDF itself reports. They are
+skipped on systems without cached PDFs — so CI passes without any binary
+fixture committed, and local runs validate end-to-end parsing.
 """
 from __future__ import annotations
 
@@ -17,13 +19,17 @@ import pytest
 
 from motogp.api.pdf_parser import (
     _NOISE,
+    _group_lines,
     _is_noise,
     _mark_best_lap,
-    _parse_column,
+    _parse_lines,
     _parse_header_a,
     _parse_lap,
     _parse_run_header,
     _parse_tyre_age,
+    _reading_order_lines,
+    _riders_by_number,
+    _right_column_start,
     fmt_sector,
     fmt_time,
     parse_analysis_pdf,
@@ -47,6 +53,10 @@ class TestTimeHelpers:
     @pytest.mark.parametrize("raw", ["", "garbage", "90.5", "1:30.500", None])
     def test_parse_laptime_invalid(self, raw):
         assert parse_laptime(raw) is None
+
+    def test_parse_laptime_under_a_minute(self):
+        # Pit-lane crossings can be printed without minutes.
+        assert parse_laptime("50.484") == pytest.approx(50.484)
 
     def test_fmt_time_roundtrip(self):
         assert fmt_time(90.5) == "01:30.500"
@@ -146,6 +156,34 @@ class TestLapParser:
         # Pattern requires 'NUM TIME' shape.
         assert _parse_lap("Lap 30.500 not a lap") is None
 
+    def test_sub_minute_pit_lap(self):
+        # Mugello: crossing the line in the pit lane, printed without minutes.
+        lap = _parse_lap("3 50.484 P 24.774 354.0")
+        assert lap["lap_seconds"] == pytest.approx(50.484)
+        assert lap["is_pit"] is True
+        assert lap["is_cancelled"] is False
+        assert lap["I1"] == "24.774"
+        assert lap["top_speed"] == "354.0"
+
+    def test_slow_top_speed_is_still_speed(self):
+        # Out-lap speed under 200 km/h must not be read as a fifth sector.
+        lap = _parse_lap("1 2'17.692 32.364 23.818 35.641 24.143 158.3")
+        assert lap["top_speed"] == "158.3"
+        assert lap["I4"] == "24.143"
+
+    def test_sector_over_a_minute(self):
+        lap = _parse_lap("5 3'05.101 P 30.070 14.156 25.856 1'55.019 306.8")
+        assert lap["I4"] == "115.019"
+        assert lap["top_speed"] == "306.8"
+        assert lap["is_pit"] is True
+
+    def test_sector_asterisk_does_not_cancel_lap(self):
+        # '*' after the lap time cancels the lap; after a sector, only that sector.
+        assert _parse_lap("4 1'39.553 * 29.569 22.880 27.956* 19.148 293.4")["is_cancelled"]
+        lap = _parse_lap("3 1'39.620 29.720 22.985 27.869* 19.046 295.0")
+        assert lap["is_cancelled"] is False
+        assert lap["I3"] == "27.869"
+
 
 # ── noise filter ────────────────────────────────────────────────────────────
 
@@ -176,7 +214,7 @@ class TestNoiseFilter:
 # ── full state-machine over a synthetic column ──────────────────────────────
 
 class TestColumnParser:
-    """End-to-end test of _parse_column against a synthetic line list."""
+    """End-to-end test of _parse_lines against a synthetic line list."""
 
     def test_single_rider_with_two_laps(self):
         lines = [
@@ -188,7 +226,7 @@ class TestColumnParser:
             "2 1'30.300 21.800 22.400 23.100 23.000 321.0",
             "© Dorna Sports",                           # noise
         ]
-        riders = _parse_column(lines)
+        riders = _parse_lines(lines)
         assert len(riders) == 1
         r = riders[0]
         assert r["name"] == "Francesco BAGNAIA"
@@ -215,18 +253,137 @@ class TestColumnParser:
             "Prima Pramac Racing",
             "1 1'30.600 22.100 22.500 23.000 23.000 319.0",
         ]
-        riders = _parse_column(lines)
+        riders = _parse_lines(lines)
         assert len(riders) == 2
         assert riders[0]["number"] == "1"
         assert riders[1]["number"] == "89"
 
     def test_no_riders_when_no_headers(self):
-        riders = _parse_column([
+        riders = _parse_lines([
             "© Dorna Sports",
             "Page 1 of 12",
             "",
         ])
         assert riders == []
+
+    def test_unreadable_header_laps_not_credited_to_previous_rider(self):
+        # The second header can't be parsed; its 'Nth NUM' line still closes
+        # the first rider's block so those laps aren't absorbed.
+        lines = [
+            "Brad BINDER KTM RSA",
+            "13th 33",
+            "Red Bull KTM Factory Racing",
+            "1 2'06.877 35.624 31.068 31.197 28.988 341.7",
+            "??? garbled header ???",
+            "14th 6",
+            "Repsol Honda Team",
+            "1 2'10.090 38.707 30.908 31.572 28.903 332.3",
+            "2 2'07.000 35.900 30.800 31.400 28.900 335.0",
+        ]
+        riders = _parse_lines(lines)
+        assert [r["number"] for r in riders] == ["33"]
+        assert len(riders[0]["laps"]) == 1
+
+    def test_letter_spaced_name_header(self):
+        # One PDF draws a name letter by letter; it also looks like the
+        # track-map 's' label the noise filter drops.
+        lines = [
+            "S t e f a n B R A D L HONDA GER",
+            "14th 6",
+            "Repsol Honda Team",
+            "1 2'10.090 38.707 30.908 31.572 28.903 332.3",
+        ]
+        riders = _parse_lines(lines)
+        assert riders[0]["name"] == "Stefan BRADL"
+        assert riders[0]["number"] == "6"
+        assert len(riders[0]["laps"]) == 1
+
+    def test_summary_total_laps_captured(self):
+        lines = [
+            "Francesco BAGNAIA DUCATI ITA",
+            "1st 1",
+            "Ducati Lenovo Team",
+            "Runs=1 Total laps=2 Full laps=1 Valid laps=1",
+            "1 1'30.500 22.000 22.500 23.000 23.000 320.5",
+            "2 1'30.300 21.800 22.400 23.100 23.000 321.0",
+        ]
+        assert _parse_lines(lines)[0]["total_laps"] == 2
+
+    def test_lap_count_mismatch_is_logged(self, caplog):
+        rider = {"name": "Francesco BAGNAIA", "number": "1", "total_laps": 3,
+                 "laps": [{"lap_number": 1, "lap_seconds": 90.0,
+                           "is_cancelled": False, "is_pit": False}]}
+        _riders_by_number([rider])
+        assert "parsed 1 laps but the PDF lists 3" in caplog.text
+
+
+# ── page geometry → reading-order lines ─────────────────────────────────────
+
+def _word(text, x0, top, size=8.0):
+    """A pdfplumber-style word box."""
+    return {"text": text, "x0": x0, "x1": x0 + 4.5 * len(text), "top": top, "bottom": top + size}
+
+
+class _Page:
+    """Stand-in for a pdfplumber page: just width + extract_words()."""
+
+    def __init__(self, words, width=595.0):
+        self.width = width
+        self._words = words
+
+    def extract_words(self, **_):
+        return list(self._words)
+
+
+class TestPageGeometry:
+
+    def test_line_kept_whole_across_old_grid_boundary(self):
+        # Real 2026 NED Q2 offsets: 'DUCATI ITA' sits 0.28pt above the name,
+        # which a fixed 3pt grid split onto its own line.
+        words = [
+            _word("Francesco", 91.3, 517.55, 10), _word("BAGNAIA", 136.0, 517.55, 10),
+            _word("DUCATI", 206.8, 517.27), _word("ITA", 272.8, 517.27),
+            _word("5th", 36.6, 521.35, 14), _word("63", 67.9, 521.35, 14),
+        ]
+        assert _group_lines(words) == ["Francesco BAGNAIA DUCATI ITA", "5th 63"]
+
+    def test_right_column_start_from_position_labels(self):
+        words = [
+            _word("1st", 311.3, 135.4),          # 8pt legend text: ignored
+            _word("4th", 307.8, 321.2, 14),
+            _word("22nd", 303.4, 600.0, 14),     # right-aligned, so starts further left
+            _word("1st", 36.6, 219.1, 14),       # left column
+        ]
+        assert _right_column_start([(595.0, words)]) == pytest.approx(302.4)
+        assert _right_column_start([(595.0, [_word("1", 50, 10)])]) is None
+
+    def test_nation_code_past_midpoint_stays_in_left_column(self):
+        # 2023-24: the left column's nation code starts at x0≈297.6 — past the
+        # page midpoint — while the right column starts at ~318.
+        page = _Page([
+            _word("Takaaki", 115.0, 663.03, 10), _word("NAKAGAMI", 154.3, 663.03, 10),
+            _word("HONDA", 232.8, 664.01), _word("JPN", 297.6, 663.17),
+            _word("15th", 318.8, 100.0, 14), _word("30", 354.6, 100.0, 14),
+        ])
+        assert _reading_order_lines([page])[0] == "Takaaki NAKAGAMI HONDA JPN"
+
+    def test_rider_block_continues_across_columns_and_pages(self):
+        # Header at the bottom of page 1's left column; its laps continue at the
+        # top of the right column, then on page 2.
+        page1 = _Page([
+            _word("Fabio", 91.3, 700.0, 9), _word("QUARTARARO", 115.0, 700.0, 9),
+            _word("YAMAHA", 206.8, 700.0), _word("FRA", 272.8, 700.0),
+            _word("9th", 36.6, 704.0, 14), _word("20", 67.9, 704.0, 14),
+            _word("Monster", 91.3, 715.0, 7), _word("Energy", 125.0, 715.0, 7),
+            _word("Runs=2", 91.3, 727.0), _word("Total", 139.7, 727.0), _word("laps=3", 158.6, 727.0),
+            _word("1", 312.2, 200.0), _word("1'40.000", 331.0, 200.0),
+            _word("2", 312.2, 212.0), _word("1'37.100", 331.0, 212.0),
+            _word("10th", 304.0, 900.0, 14),     # anchors the right column
+        ])
+        page2 = _Page([_word("3", 40.1, 200.0), _word("1'36.900", 59.8, 200.0)])
+        riders = _parse_lines(_reading_order_lines([page1, page2]))
+        assert riders[0]["name"] == "Fabio QUARTARARO"
+        assert [l["lap_number"] for l in riders[0]["laps"]] == [1, 2, 3]
 
 
 # ── tyre run header + age ───────────────────────────────────────────────────
@@ -277,6 +434,11 @@ class TestTyreParser:
         out = _parse_run_header("1 Front Tyre Rear Tyre")
         assert out == {"run_number": 1, "front_tyre": None, "rear_tyre": None}
 
+    def test_run_header_missing_data_front(self):
+        # 'missing data' in place of the front compound must not hide the run.
+        out = _parse_run_header("1 Front Tyre missing data Rear Tyre missing data")
+        assert out == {"run_number": 1, "front_tyre": None, "rear_tyre": None}
+
     def test_run_header_rejects_non_header(self):
         assert _parse_run_header("Francesco BAGNAIA DUCATI ITA") is None
         assert _parse_run_header("1 1'30.500 22.0 22.5 23.0 23.0 320") is None
@@ -316,7 +478,7 @@ class TestTyreParser:
             "2Laps at start New Tyre",
             "3 1'52.182 35.0 28.0 29.0 20.0 250.0",
         ]
-        riders = _parse_column(lines)
+        riders = _parse_lines(lines)
         assert len(riders) == 1
         laps = riders[0]["laps"]
         assert len(laps) == 3
@@ -339,7 +501,7 @@ class TestTyreParser:
             "Ducati Lenovo Team",
             "1 1'30.500 22.0 22.5 23.0 23.0 320.0",
         ]
-        laps = _parse_column(lines)[0]["laps"]
+        laps = _parse_lines(lines)[0]["laps"]
         assert laps[0]["front_tyre"] is None
         assert laps[0]["run_number"] is None
 
@@ -363,6 +525,23 @@ class TestMarkBestLap:
         laps = [{"lap_number": 1, "lap_seconds": 90.0, "is_cancelled": True}]
         _mark_best_lap(laps)
         assert laps[0]["is_best"] is False
+
+    def test_skip_pit_lane_lap_when_marking_best(self):
+        # A pit-lane lap can be shorter than a full lap (Goiania: 1:17 vs 1:26).
+        laps = [
+            {"lap_number": 1, "lap_seconds": 77.5, "is_cancelled": False, "is_pit": True},
+            {"lap_number": 2, "lap_seconds": 86.7, "is_cancelled": False, "is_pit": False},
+        ]
+        _mark_best_lap(laps)
+        assert [l["is_best"] for l in laps] == [False, True]
+
+    def test_single_best_on_tied_times(self):
+        laps = [
+            {"lap_number": 1, "lap_seconds": 90.0, "is_cancelled": False},
+            {"lap_number": 2, "lap_seconds": 90.0, "is_cancelled": False},
+        ]
+        _mark_best_lap(laps)
+        assert sum(l["is_best"] for l in laps) == 1
 
 
 # ── integration: real PDF if available ──────────────────────────────────────
@@ -388,7 +567,7 @@ def test_parse_analysis_pdf_smoke():
         pytest.skip(f"parser returned empty for {pdf.name} — likely unparseable")
     # Each rider should expose the documented schema.
     sample = next(iter(result.values()))
-    for key in ("name", "motorcycle", "nation", "number", "pos", "team", "laps"):
+    for key in ("name", "motorcycle", "nation", "number", "pos", "team", "laps", "total_laps"):
         assert key in sample, f"missing key {key!r} in {sample}"
     assert isinstance(sample["laps"], list)
     if sample["laps"]:
@@ -398,3 +577,25 @@ def test_parse_analysis_pdf_smoke():
                   "run_number", "front_tyre", "rear_tyre",
                   "front_tyre_age", "rear_tyre_age"):
             assert k in lap
+
+
+@pytest.mark.integration
+@pytest.mark.skipif(
+    not PDF_CACHE.exists() or not any(PDF_CACHE.glob("*.pdf")),
+    reason="no cached PDF available — run a live load to populate ~/.motogp_pdfs/",
+)
+def test_parse_analysis_pdf_agrees_with_pdf_summaries():
+    """Every rider block carries 'Runs=.. Total laps=N': the parser must find
+    every block and, bar the odd DORNA bookkeeping quirk, exactly N laps."""
+    import pdfplumber
+
+    blocks = riders = mismatched = 0
+    for pdf_path in sorted(PDF_CACHE.glob("*.pdf"))[:25]:
+        with pdfplumber.open(pdf_path) as pdf:
+            text = "\n".join(page.extract_text() or "" for page in pdf.pages)
+        blocks += text.count("Runs=")
+        parsed = parse_analysis_pdf(pdf_path)
+        riders += len(parsed)
+        mismatched += sum(1 for r in parsed.values() if len(r["laps"]) != r["total_laps"])
+    assert riders == blocks
+    assert mismatched <= max(1, riders // 100)
