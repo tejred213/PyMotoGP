@@ -298,9 +298,17 @@ def _join_spaced_letters(line: str) -> str:
 
 
 def _rider_header(line: str) -> Optional[dict]:
-    """Rider header Line A, also when the PDF draws the name letter by letter."""
-    line = line.strip()
-    return _parse_header_a(line) or _parse_header_a(_join_spaced_letters(line))
+    """Rider header Line A, also when the PDF draws the name letter by letter.
+
+    Noise lines never count: a page title such as 'RED BULL GRAND PRIX OF SAN
+    MARINO AND' has a header's shape ('MARINO' as bike, 'AND' as nation).
+    """
+    for cand in (line.strip(), _join_spaced_letters(line.strip())):
+        if not _is_noise(cand):
+            hdr = _parse_header_a(cand)
+            if hdr:
+                return hdr
+    return None
 
 
 def _seconds(token: str) -> float:
